@@ -3436,21 +3436,6 @@ except AttributeError:
 * Display success or error messages
 * Always complete cleanup using `finally`
 
----
-
-# 🏢 Real-World AI/ML Connection
-
-Exception handling is used in:
-
-* 🤖 Machine Learning Pipelines
-* 📊 Data Preprocessing
-* 📁 Dataset Loading
-* 🌐 APIs
-* 🤖 Automation Scripts
-* ☁️ Cloud Applications
-
-Reliable software handles errors gracefully instead of crashing unexpectedly.
-
 # 🚀 Day 13 — Object-Oriented Programming (OOP) in Python
 
 <div align="center">
@@ -3622,60 +3607,6 @@ Object-Oriented Programming is used in:
 
 Libraries such as **TensorFlow**, **PyTorch**, and **Scikit-learn** are heavily built using OOP concepts.
 
----
-
-# 🧠 Practice Programs Completed
-
-* ✅ Classes
-* ✅ Objects
-* ✅ Constructors
-* ✅ self Keyword
-* ✅ Instance Variables
-* ✅ Class Variables
-* ✅ Instance Methods
-* ✅ `__str__()` Method
-* ✅ Library Management System
-* ✅ Employee Management System
-* ✅ Bank Account System
-* ✅ Online Course Management System
-
----
-
-
-
-# ⚡ Why OOP Matters
-
-Object-Oriented Programming helps developers:
-
-* Organize code efficiently
-* Build reusable components
-* Reduce code duplication
-* Improve maintainability
-* Develop scalable applications
-* Build production-ready software
-
-OOP is one of the core programming paradigms used in professional software development.
-
----
-
-
-# 💡 Day 13 Reflection
-
-Today I learned how Object-Oriented Programming helps organize code into reusable and maintainable components. I built multiple OOP-based applications and understood how classes and objects model real-world systems.
-
-OOP is an essential foundation before learning advanced Python libraries used in Data Science, Machine Learning, and Artificial Intelligence.
-
-> "Well-designed classes today become scalable AI applications tomorrow."
-
-
-
-<div align="center">
-
-## ⭐ Day 13 Completed Successfully
-
-### 🚀 Building the Foundation for Scalable AI & ML Applications
-
-</div>
 
 # 🚀 Day 14 – Advanced Object-Oriented Programming (OOP) in Python
 
@@ -3822,22 +3753,6 @@ These OOP concepts are widely used in:
 * 📚 Library Management Systems
 * 🛒 E-commerce Applications
 * 📱 Desktop and Web Applications
-
----
-
-# 💡 Key Takeaways
-
-* Store shared information using **Class Variables**.
-* Store object-specific information using **Instance Variables**.
-* Use **Instance Methods** to work with object data.
-* Use **Class Methods** to work with shared class data.
-* Use **Static Methods** for utility or validation functions.
-
----
-
-# 🧠 What I Learned
-
-Today I understood that good OOP design is not just about creating classes. It is about deciding where data should be stored and which methods should perform different tasks. Using the right type of variable and method makes code cleaner, easier to maintain, and more reusable.
 
 # 🚀 Day 15 – Inheritance in Python
 
