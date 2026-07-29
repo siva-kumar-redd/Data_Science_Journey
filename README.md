@@ -3874,53 +3874,6 @@ Example:
 * ✅ Hospital Management System
 * ✅ Employee Management System
 
----
-
-# 🏢 Company-Style Coding Practice
-
-Solved inheritance-based interview questions similar to those asked in:
-
-* TCS Digital
-* Infosys
-* Cognizant
-* Accenture
-
-Practiced:
-
-* Parent and Child class design
-* Using `super()`
-* Constructor chaining
-* Debugging inheritance errors
-* Interview-style MCQs
-
----
-
-# 🌍 Real-World Applications
-
-Inheritance is commonly used in:
-
-* 🏥 Hospital Management Systems
-* 🎓 College Management Systems
-* 🏦 Banking Applications
-* 🛒 E-commerce Systems
-* 🚗 Vehicle Management Systems
-* 👨‍💼 Employee Management Systems
-
----
-
-# 🧠 Key Takeaways
-
-* Create a parent class for common data.
-* Use child classes for additional features.
-* Use `super()` to reuse the parent constructor.
-* Avoid writing duplicate code.
-* Design classes by separating common and unique information.
-
----
-
-
-
-
 # 🚀 Day 16 – Types of Inheritance, Method Overriding, `super()` & MRO
 
 <div align="center">
@@ -4117,61 +4070,6 @@ MRO ensures that Python always knows which method to execute first when multiple
 * ✅ Banking System
 * ✅ Vehicle Management System
 * ✅ University Management System
-
----
-
-# 🏢 Company-Style Coding Practice
-
-Solved interview-oriented coding questions based on:
-
-* Types of Inheritance
-* Method Overriding
-* Using `super()`
-* Method Resolution Order (MRO)
-* Code Reusability
-* OOP Design
-
----
-
-# 🌍 Real-World Applications
-
-These concepts are commonly used in:
-
-* 🚗 Vehicle Management Systems
-* 🏦 Banking Applications
-* 🎓 University Management Systems
-* 🏥 Hospital Management Systems
-* 📱 Smart Device Applications
-* 🛒 E-commerce Platforms
-
----
-
-# 🧠 Key Takeaways
-
-* Choose the inheritance type based on the relationship between classes.
-* Use method overriding to customize inherited behavior.
-* Use `super()` to reuse parent functionality instead of duplicating code.
-* Understand MRO when working with multiple inheritance.
-* Draw the class hierarchy before writing code to avoid design mistakes.
-
----
-
-# 📈 Skills Gained
-
-After completing Day 16, I can:
-
-* Design appropriate inheritance hierarchies.
-* Differentiate between inheritance types.
-* Override methods confidently.
-* Use `super()` in constructors and methods.
-* Explain Method Resolution Order (MRO).
-* Solve company-style OOP coding problems.
-
-
-
-## 📌 Day 16 Status
-
-**Completed Successfully ✅**
 
 # 🚀 Day 17 – Polymorphism, Duck Typing & Operator Overloading
 
