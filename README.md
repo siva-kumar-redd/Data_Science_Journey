@@ -6532,6 +6532,331 @@ Topics include:
 # 👨‍💻 Author
 
 **Siva Kumar Reddy**
+# 🐍 Day 25 — Regular Expressions (Regex)
+
+<div align="center">
+
+![Python](https://img.shields.io/badge/Python-Intermediate-blue?style=for-the-badge\&logo=python)
+![Day](https://img.shields.io/badge/Day-26-success?style=for-the-badge)
+![Topic](https://img.shields.io/badge/Topic-Regular%20Expressions-orange?style=for-the-badge)
+
+### 🔥 Mastering Pattern Matching & Text Processing with Python Regex
+
+</div>
+
+---
+
+# 🎯 Goal of Day 26
+
+Today I learned how to use **Regular Expressions (Regex)** in Python to search, extract, validate, replace, and manipulate text efficiently.
+
+By the end of today, I can:
+
+✅ Search Text Using Patterns
+✅ Extract Useful Information
+✅ Replace Matching Text
+✅ Split Strings Using Patterns
+✅ Validate User Input
+✅ Clean Text for AI & Machine Learning
+
+---
+
+# 📚 What I Learned Today
+
+## 🔹 Introduction to Regex
+
+Regular Expressions (Regex) are patterns used to search, match, and manipulate text.
+
+```python
+import re
+```
+
+Regex is widely used in:
+
+* Data Cleaning
+* NLP
+* Web Scraping
+* Log Analysis
+* Input Validation
+
+---
+
+## 🔹 `re.search()`
+
+Searches the entire string for the first match.
+
+```python
+import re
+
+text = "I am learning Python."
+
+if re.search("Python", text):
+    print("Found")
+```
+
+Output:
+
+```text
+Found
+```
+
+---
+
+## 🔹 `re.match()`
+
+Checks whether the pattern matches only at the beginning of the string.
+
+```python
+import re
+
+text = "Python Programming"
+
+print(re.match("Python", text))
+```
+
+---
+
+## 🔹 `re.findall()`
+
+Returns all matching values.
+
+```python
+import re
+
+text = "Apple 25 Mango 100 Orange 350"
+
+print(re.findall(r"\d+", text))
+```
+
+Output:
+
+```python
+['25', '100', '350']
+```
+
+---
+
+## 🔹 `re.finditer()`
+
+Returns an iterator of match objects.
+
+```python
+import re
+
+text = "AI ML AI"
+
+for match in re.finditer("AI", text):
+    print(match.start())
+```
+
+---
+
+## 🔹 `re.sub()`
+
+Replaces matching text.
+
+```python
+import re
+
+text = "Python is fun"
+
+print(re.sub("fun", "awesome", text))
+```
+
+Output:
+
+```text
+Python is awesome
+```
+
+---
+
+## 🔹 `re.split()`
+
+Splits text using a regex pattern.
+
+```python
+import re
+
+text = "Python,AI;ML Data"
+
+print(re.split(r"[,; ]+", text))
+```
+
+Output:
+
+```python
+['Python', 'AI', 'ML', 'Data']
+```
+
+---
+
+## 🔹 `re.compile()`
+
+Compiles a regex pattern for repeated use.
+
+```python
+import re
+
+pattern = re.compile(r"\d+")
+
+print(pattern.findall("A12 B45 C78"))
+```
+
+---
+
+# 🔍 Common Regex Patterns
+
+| Pattern | Description           |
+| ------- | --------------------- |
+| `\d`    | Digit                 |
+| `\D`    | Non-digit             |
+| `\w`    | Word character        |
+| `\W`    | Non-word character    |
+| `\s`    | Whitespace            |
+| `\S`    | Non-whitespace        |
+| `.`     | Any character         |
+| `^`     | Start of string       |
+| `$`     | End of string         |
+| `*`     | Zero or more          |
+| `+`     | One or more           |
+| `?`     | Zero or one           |
+| `[]`    | Character set         |
+| `[^]`   | Negated character set |
+
+---
+
+# 💻 Practice Programs Completed
+
+* ✅ Search a Word in a String
+* ✅ Extract Numbers
+* ✅ Extract Email Address
+* ✅ Replace Multiple Spaces
+* ✅ Split Text Using Regex
+* ✅ Count Digits
+* ✅ Extract Customer IDs
+* ✅ Extract Words Starting with a Specific Letter
+
+---
+
+# 🌍 Real-World AI/ML Connection
+
+Regex is widely used in:
+
+* 🤖 NLP Preprocessing
+* 📊 Data Cleaning
+* 📧 Email Validation
+* 📱 Phone Number Validation
+* 🔐 Password Validation
+* 🌐 Web Scraping
+* 📄 Resume Parsing
+* 📜 Log File Analysis
+
+Text preprocessing is one of the first steps in many AI and Machine Learning workflows.
+
+---
+
+# 🧠 Practice Programs Completed
+
+* ✅ `re.search()`
+* ✅ `re.match()`
+* ✅ `re.findall()`
+* ✅ `re.finditer()`
+* ✅ `re.sub()`
+* ✅ `re.split()`
+* ✅ `re.compile()`
+* ✅ Pattern Matching
+* ✅ Email Extraction
+* ✅ Data Cleaning
+* ✅ Text Validation
+
+---
+
+# 📂 Project Structure
+
+```text
+day26/
+│
+├── search.py
+├── match.py
+├── findall.py
+├── finditer.py
+├── substitute.py
+├── split.py
+├── compile_pattern.py
+├── email_extractor.py
+├── number_extractor.py
+├── data_cleaning.py
+└── README.md
+```
+
+---
+
+# ⚡ Why Regex Matters
+
+Regular Expressions help developers:
+
+* Search Text Efficiently
+* Validate User Input
+* Clean Datasets
+* Extract Information
+* Process Large Text Files
+* Automate Text Analysis
+
+Regex is an essential skill for Data Analysts, Data Scientists, and Machine Learning Engineers.
+
+---
+
+# 📈 Learning Progress
+
+```text
+Python Fundamentals   ████████████████ 100%
+Object-Oriented Prog. ████████████████ 100%
+Regex                 ████████████████ 100%
+
+Problem Solving       ████████████████ 100%
+AI/ML Journey         █████████████████░ 90%
+```
+
+---
+
+# 💡 Day 26 Reflection
+
+Today I learned how Regular Expressions simplify text processing using powerful pattern-matching techniques. I explored searching, extracting, replacing, and validating text, which are essential tasks in data preprocessing.
+
+Regex is a valuable tool for preparing clean and structured data before analysis or machine learning model training.
+
+> **"Clean data starts with powerful pattern matching, and Regex is one of the best tools for the job."**
+
+---
+
+# 🎯 Next Goals
+
+* Date & Time Handling (`datetime`)
+* NumPy
+* Pandas
+* Data Visualization
+* Machine Learning Foundations
+
+---
+
+# 👨‍💻 Author
+
+**Siva**
+
+🎓 MCA Student
+📊 Aspiring AI/ML Engineer
+🚀 Building projects daily
+
+---
+
+<div align="center">
+
+## ⭐ Day 25 Completed Successfully
+
+### 🚀 Mastering Text Processing with Python Regular Expressions
+
+</div>
 
 
 📊 Aspiring AI/Data Scientist  
