@@ -6546,7 +6546,7 @@ Topics include:
 
 ---
 
-# 🎯 Goal of Day 26
+# 🎯 Goal of Day 25
 
 Today I learned how to use **Regular Expressions (Regex)** in Python to search, extract, validate, replace, and manipulate text efficiently.
 
