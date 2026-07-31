@@ -6839,25 +6839,288 @@ Regex is a valuable tool for preparing clean and structured data before analysis
 * Machine Learning Foundations
 
 ---
+# 🐍 Day 27 — Lambda, Map, Filter & Reduce
+
+<div align="center">
+
+![Python](https://img.shields.io/badge/Python-Intermediate-blue?style=for-the-badge\&logo=python)
+![Day](https://img.shields.io/badge/Day-27-success?style=for-the-badge)
+![Topic](https://img.shields.io/badge/Topic-Functional%20Programming-orange?style=for-the-badge)
+
+### 🔥 Writing Cleaner & More Efficient Python Code with Functional Programming
+
+</div>
+
+---
+
+# 🎯 Goal of Day 27
+
+Today I learned how to use **Lambda Functions**, **map()**, **filter()**, and **reduce()** to write concise and efficient Python programs.
+
+By the end of today, I can:
+
+✅ Create Lambda Functions
+✅ Transform Data with `map()`
+✅ Filter Data with `filter()`
+✅ Aggregate Data with `reduce()`
+✅ Chain Functional Programming Operations
+✅ Process Data Efficiently
+
+---
+
+# 📚 What I Learned Today
+
+## 🔹 Lambda Function
+
+A **lambda function** is an anonymous function written in a single line.
+
+### Syntax
+
+```python
+lambda arguments: expression
+```
+
+### Example
+
+```python
+square = lambda x: x ** 2
+
+print(square(5))
+```
+
+Output:
+
+```python
+25
+```
+
+---
+
+## 🔹 map()
+
+Applies a function to every element in an iterable.
+
+```python
+numbers = [1, 2, 3, 4]
+
+result = list(map(lambda x: x * 2, numbers))
+
+print(result)
+```
+
+Output:
+
+```python
+[2, 4, 6, 8]
+```
+
+---
+
+## 🔹 filter()
+
+Selects only the elements that satisfy a condition.
+
+```python
+numbers = [10, 20, 30, 40]
+
+result = list(filter(lambda x: x > 20, numbers))
+
+print(result)
+```
+
+Output:
+
+```python
+[30, 40]
+```
+
+---
+
+## 🔹 reduce()
+
+Combines all elements into a single value.
+
+```python
+from functools import reduce
+
+numbers = [1, 2, 3, 4]
+
+result = reduce(lambda x, y: x + y, numbers)
+
+print(result)
+```
+
+Output:
+
+```python
+10
+```
+
+---
+
+## 🔹 Chaining map(), filter() & reduce()
+
+```python
+from functools import reduce
+
+numbers = [1, 2, 3, 4, 5]
+
+doubled = list(map(lambda x: x * 2, numbers))
+filtered = list(filter(lambda x: x > 5, doubled))
+total = reduce(lambda x, y: x + y, filtered)
+
+print(doubled)
+print(filtered)
+print(total)
+```
+
+Output:
+
+```python
+[2, 4, 6, 8, 10]
+[6, 8, 10]
+24
+```
+
+---
+
+# 💻 Practice Programs Completed
+
+* ✅ Lambda Function
+* ✅ Square Calculator
+* ✅ Double Numbers using `map()`
+* ✅ Filter Even Numbers
+* ✅ Filter Positive Numbers
+* ✅ Sum using `reduce()`
+* ✅ Product using `reduce()`
+* ✅ Functional Programming Pipeline
+* ✅ Salary Transformation
+* ✅ Student Marks Filtering
+
+---
+
+# 🌍 Real-World AI/ML Connection
+
+Functional programming is widely used in:
+
+* 🤖 Machine Learning Data Pipelines
+* 📊 Data Transformation
+* 🧹 Data Cleaning
+* ⚙️ ETL Processes
+* 📈 Feature Engineering
+* 💰 Financial Data Processing
+* 🛒 E-commerce Analytics
+* 📄 Log File Processing
+
+These functions make data preprocessing faster, cleaner, and easier to maintain.
+
+---
+
+# 🧠 Key Concepts Learned
+
+✅ Lambda Functions
+
+✅ Anonymous Functions
+
+✅ `map()`
+
+✅ `filter()`
+
+✅ `reduce()`
+
+✅ Function Chaining
+
+✅ Data Transformation
+
+✅ Data Filtering
+
+✅ Data Aggregation
+
+✅ Functional Programming
+
+---
+
+# ⚠️ Common Mistakes
+
+* Forgetting to convert `map()` and `filter()` objects into lists.
+* Using `reduce()` without importing it from `functools`.
+* Applying `filter()` before transforming the data when the opposite is intended.
+* Trying to use `return` inside a lambda function.
+* Overusing lambda expressions where a normal function would improve readability.
+
+---
+
+# 📂 Project Structure
+
+```text
+day27/
+│
+├── lambda_demo.py
+├── map_examples.py
+├── filter_examples.py
+├── reduce_examples.py
+├── chaining_operations.py
+├── salary_processing.py
+├── marks_filter.py
+├── ecommerce_discount.py
+├── data_pipeline.py
+└── README.md
+```
+
+---
+
+# ⚡ Why Functional Programming Matters
+
+Functional programming helps developers:
+
+* Write concise code
+* Transform data efficiently
+* Improve readability
+* Process large datasets
+* Build reusable data pipelines
+* Simplify Machine Learning preprocessing
+
+These concepts are widely used in Python libraries such as **Pandas**, **NumPy**, and **PySpark**.
+
+---
+
+# 📈 Learning Progress
+
+```text
+Python Fundamentals      ████████████████ 100%
+Object-Oriented Prog.    ████████████████ 100%
+Regular Expressions      ████████████████ 100%
+Functional Programming   ████████████████ 100%
+
+Problem Solving          ████████████████ 100%
+AI/ML Journey            ██████████████████░ 92%
+```
+
+---
+
+# 💡 Day 27 Reflection
+
+Today I learned how functional programming simplifies data processing using **lambda functions**, **map()**, **filter()**, and **reduce()**. These tools make Python code more concise while improving efficiency when working with collections of data.
+
+Functional programming is an important skill for Data Science and Machine Learning because many preprocessing tasks involve transforming, filtering, and aggregating large datasets.
+
+> **"Clean data pipelines begin with clean, functional code."**
+
+---
+
+# 🎯 Next Goals
+
+* List Comprehensions
+* Dictionary Comprehensions
+* Set Comprehensions
+* NumPy
+* Pandas
+* Data Analysis Projects
+
 
 # 👨‍💻 Author
 
 **Siva**
-
-🎓 MCA Student
-📊 Aspiring AI/ML Engineer
-🚀 Building projects daily
-
----
-
-<div align="center">
-
-## ⭐ Day 25 Completed Successfully
-
-### 🚀 Mastering Text Processing with Python Regular Expressions
-
-</div>
-
 
 📊 Aspiring AI/Data Scientist  
 🚀 Building projects daily
