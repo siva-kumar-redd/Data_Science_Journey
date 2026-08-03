@@ -6818,9 +6818,387 @@ Functional programming is an important skill for Data Science and Machine Learni
 * Data Analysis Projects
 
 
+# 🐍 Day 28 — List, Dictionary & Set Comprehensions
+
+<div align="center">
+
+![Python](https://img.shields.io/badge/Python-Intermediate-blue?style=for-the-badge\&logo=python)
+![Day](https://img.shields.io/badge/Day-28-success?style=for-the-badge)
+![Topic](https://img.shields.io/badge/Topic-Comprehensions-orange?style=for-the-badge)
+
+### 🔥 Writing Cleaner, Faster & More Pythonic Code with Comprehensions
+
+</div>
+
+---
+
+# 🎯 Goal of Day 28
+
+Today I learned how to use **List**, **Dictionary**, and **Set Comprehensions** to create and transform collections efficiently.
+
+By the end of today, I can:
+
+✅ Create Lists Using Comprehensions
+✅ Create Dictionaries Efficiently
+✅ Build Sets with Unique Values
+✅ Apply Conditional Filtering
+✅ Transform Data in a Single Line
+✅ Write More Pythonic Code
+
+---
+
+# 📚 What I Learned Today
+
+## 🔹 List Comprehension
+
+A list comprehension creates lists in a concise and readable way.
+
+### Traditional Approach
+
+```python
+numbers = []
+
+for i in range(1, 6):
+    numbers.append(i)
+
+print(numbers)
+```
+
+### List Comprehension
+
+```python
+numbers = [i for i in range(1, 6)]
+
+print(numbers)
+```
+
+Output:
+
+```python
+[1, 2, 3, 4, 5]
+```
+
+---
+
+## 🔹 Creating Squares
+
+```python
+squares = [x ** 2 for x in range(1, 6)]
+
+print(squares)
+```
+
+Output:
+
+```python
+[1, 4, 9, 16, 25]
+```
+
+---
+
+## 🔹 List Comprehension with Condition
+
+```python
+even_numbers = [x for x in range(1, 11) if x % 2 == 0]
+
+print(even_numbers)
+```
+
+Output:
+
+```python
+[2, 4, 6, 8, 10]
+```
+
+---
+
+## 🔹 Dictionary Comprehension
+
+Create dictionaries in a single line.
+
+```python
+square_dict = {x: x ** 2 for x in range(1, 6)}
+
+print(square_dict)
+```
+
+Output:
+
+```python
+{
+    1: 1,
+    2: 4,
+    3: 9,
+    4: 16,
+    5: 25
+}
+```
+
+---
+
+## 🔹 Dictionary Comprehension with Condition
+
+```python
+even_square_dict = {
+    x: x ** 2
+    for x in range(1, 11)
+    if x % 2 == 0
+}
+
+print(even_square_dict)
+```
+
+Output:
+
+```python
+{
+    2: 4,
+    4: 16,
+    6: 36,
+    8: 64,
+    10: 100
+}
+```
+
+---
+
+## 🔹 Set Comprehension
+
+Create sets while automatically removing duplicate values.
+
+```python
+square_set = {x ** 2 for x in range(1, 6)}
+
+print(square_set)
+```
+
+Output:
+
+```python
+{1, 4, 9, 16, 25}
+```
+
+---
+
+## 🔹 Set Comprehension with Condition
+
+```python
+divisible_by_three = {
+    x
+    for x in range(1, 16)
+    if x % 3 == 0
+}
+
+print(divisible_by_three)
+```
+
+Output:
+
+```python
+{3, 6, 9, 12, 15}
+```
+
+---
+
+# 💻 Practice Programs Completed
+
+* ✅ List Comprehension
+* ✅ Square Numbers Generator
+* ✅ Even Numbers Filter
+* ✅ Dictionary Comprehension
+* ✅ Dictionary with Conditions
+* ✅ Set Comprehension
+* ✅ Unique Values Generator
+* ✅ Salary Hike Calculator
+* ✅ Passed Students Filter
+* ✅ Data Cleaning Examples
+
+---
+
+# 🌍 Real-World AI/ML Connection
+
+Comprehensions are widely used in:
+
+* 🤖 Data Preprocessing
+* 📊 Data Transformation
+* 🧹 Data Cleaning
+* ⚙️ ETL Pipelines
+* 📈 Feature Engineering
+* 🌐 API Response Processing
+* 🛒 Business Analytics
+* 🧠 Machine Learning Workflows
+
+They help process large datasets with clean and efficient code.
+
+---
+
+# 🧠 Key Concepts Learned
+
+✅ List Comprehensions
+
+✅ Dictionary Comprehensions
+
+✅ Set Comprehensions
+
+✅ Conditional Comprehensions
+
+✅ Data Transformation
+
+✅ Data Filtering
+
+✅ Collection Creation
+
+✅ Pythonic Coding Style
+
+---
+
+# 💼 Industry Examples
+
+## Remove Empty Strings
+
+```python
+names = ["Siva", "", "Kumar", "", "Reddy"]
+
+clean_names = [name for name in names if name != ""]
+
+print(clean_names)
+```
+
+---
+
+## Apply Salary Hike
+
+```python
+salaries = [25000, 40000, 55000]
+
+updated_salaries = [salary * 1.15 for salary in salaries]
+
+print(updated_salaries)
+```
+
+---
+
+## Filter Passed Students
+
+```python
+marks = {
+    "Rahul": 85,
+    "Anita": 45,
+    "Siva": 92
+}
+
+passed_students = {
+    name: score
+    for name, score in marks.items()
+    if score >= 50
+}
+
+print(passed_students)
+```
+
+---
+
+# ⚠️ Common Mistakes
+
+* Forgetting that `range()` excludes the ending value.
+* Assuming comprehensions modify the original collection.
+* Using the wrong collection type.
+* Writing overly complex comprehensions that reduce readability.
+* Forgetting conditional filtering with `if`.
+
+---
+
+# 📂 Project Structure
+
+```text
+day28/
+│
+├── list_comprehension.py
+├── dictionary_comprehension.py
+├── set_comprehension.py
+├── conditional_list.py
+├── conditional_dictionary.py
+├── conditional_set.py
+├── salary_hike.py
+├── passed_students.py
+├── data_cleaning.py
+└── README.md
+```
+
+---
+
+# ⚡ Why Comprehensions Matter
+
+Comprehensions help developers:
+
+* Write concise code
+* Improve readability
+* Transform data efficiently
+* Reduce unnecessary loops
+* Process datasets quickly
+* Follow Python best practices
+
+They are commonly used in **NumPy**, **Pandas**, and data preprocessing pipelines.
+
+---
+
+# 📈 Learning Progress
+
+```text
+Python Fundamentals      ████████████████ 100%
+Object-Oriented Prog.    ████████████████ 100%
+Regular Expressions      ████████████████ 100%
+Functional Programming   ████████████████ 100%
+Comprehensions           ████████████████ 100%
+
+Problem Solving          ████████████████ 100%
+AI/ML Journey            ███████████████████░ 94%
+```
+
+---
+
+# 💡 Day 28 Reflection
+
+Today I learned how comprehensions make Python code shorter, cleaner, and more efficient. I practiced creating lists, dictionaries, and sets with optional conditions, making data transformation easier and more readable.
+
+Comprehensions are widely used in Data Science and Machine Learning because they simplify preprocessing tasks and improve code quality.
+
+> **"Write less code, express more logic—that's the power of Python comprehensions."**
+
+---
+
+# 🎯 Next Goals
+
+* `zip()`
+* `enumerate()`
+* `any()`
+* `all()`
+* NumPy
+* Pandas
+
+---
+
 # 👨‍💻 Author
 
 **Siva**
+
+🎓 MCA Student
+📊 Aspiring AI/ML Engineer
+🚀 Building projects daily
+
+---
+
+<div align="center">
+
+## ⭐ Day 28 Completed Successfully
+
+### 🚀 Writing Cleaner & More Pythonic Code with Comprehensions
+
+</div>
+
+# 👨‍💻 Author
+
+**Siva Kumar Reddy**
 
 📊 Aspiring AI/Data Scientist  
 🚀 Building projects daily
