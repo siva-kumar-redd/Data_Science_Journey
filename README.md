@@ -7165,6 +7165,185 @@ Statistics helps professionals:
 
 Every successful Data Scientist and ML Engineer relies on statistical thinking.
 
+
+# 📊 Day 32 — Arithmetic Mean & Weighted Mean
+
+<div align="center">
+
+![Statistics](https://img.shields.io/badge/Statistics-Central%20Tendency-blue?style=for-the-badge)
+![Day](https://img.shields.io/badge/Day-32-success?style=for-the-badge)
+![Topic](https://img.shields.io/badge/Topic-Arithmetic%20Mean%20%26%20Weighted%20Mean-orange?style=for-the-badge)
+
+### 🚀 Understanding the Most Important Measure of Central Tendency
+
+</div>
+
+---
+
+# 🎯 Goal of Day 32
+
+Today I learned two fundamental statistical measures used in Data Science, Machine Learning, Business Analytics, and Generative AI.
+
+By the end of today, I can:
+
+✅ Calculate Arithmetic Mean
+✅ Calculate Weighted Mean
+✅ Differentiate Between Mean & Weighted Mean
+✅ Apply Mean to Real-World Datasets
+✅ Perform Statistical Analysis Using Pure Python
+
+---
+
+# 📚 What I Learned Today
+
+## 🔹 Arithmetic Mean
+
+Arithmetic Mean is the sum of all observations divided by the total number of observations.
+
+### Formula
+
+[
+\text{Mean}=\frac{\sum x}{n}
+]
+
+Where:
+
+* **Σx** → Sum of all observations
+* **n** → Number of observations
+
+### Example
+
+```text
+Marks = 70, 80, 90, 60, 100
+
+Total = 400
+Students = 5
+
+Mean = 400 / 5 = 80
+```
+
+---
+
+## 🔹 Weighted Mean
+
+Weighted Mean is used when some observations are more important than others.
+
+### Formula
+
+[
+\text{Weighted Mean}=\frac{\sum(wx)}{\sum w}
+]
+
+Where:
+
+* **w** → Weight
+* **x** → Observation
+
+### Example
+
+| Component  | Weight | Score |
+| ---------- | -----: | ----: |
+| Assignment |    20% |    85 |
+| Mid Exam   |    30% |    75 |
+| Final Exam |    50% |    90 |
+
+Calculation:
+
+```text
+(85 × 0.2) + (75 × 0.3) + (90 × 0.5)
+
+17 + 22.5 + 45
+
+Weighted Mean = 84.5
+```
+
+---
+
+# 🔄 Arithmetic Mean vs Weighted Mean
+
+| Arithmetic Mean                 | Weighted Mean                       |
+| ------------------------------- | ----------------------------------- |
+| Equal importance to every value | Different importance for each value |
+| Simple average                  | Weighted average                    |
+| Easy to calculate               | Requires weights                    |
+| Used for general summaries      | Used when priorities are assigned   |
+
+---
+
+# 💻 Pure Python Practice
+
+### Arithmetic Mean
+
+```python
+marks = [70, 80, 90, 60, 100]
+
+total = sum(marks)
+count = len(marks)
+mean = total / count
+
+print("Total Marks:", total)
+print("Students:", count)
+print("Arithmetic Mean:", mean)
+```
+
+---
+
+### Average Customer Spending
+
+```python
+spending = [500, 700, 900, 400, 1000]
+
+total = sum(spending)
+average = total / len(spending)
+
+print("Average Spending:", average)
+```
+
+---
+
+### Employee Salary Analysis
+
+```python
+salary = [30000, 45000, 50000, 35000]
+
+print("Highest Salary:", max(salary))
+print("Lowest Salary:", min(salary))
+print("Average Salary:", sum(salary) / len(salary))
+```
+
+# 🌍 Real-World Data Science & AI Connection
+
+Mean is one of the most commonly used statistical measures across industries.
+
+### 📊 Data Science
+
+* Customer spending analysis
+* Sales performance
+* Employee salary analysis
+* Business reporting
+
+### 🤖 Machine Learning
+
+* Mean Squared Error (MSE)
+* Average prediction accuracy
+* Feature analysis
+* Model evaluation
+
+### ✨ Generative AI
+
+* Average prompt length
+* Average response time
+* Token usage analysis
+* Inference latency monitoring
+
+# ⚠️ Common Mistakes
+
+* Forgetting to divide by the total number of observations.
+* Confusing Arithmetic Mean with Weighted Mean.
+* Ignoring weights while calculating Weighted Mean.
+* Using Mean for categorical data.
+* Forgetting that outliers can significantly affect the Mean.
+
 # 👨‍💻 Author
 
 **Siva Kumar Reddy**
