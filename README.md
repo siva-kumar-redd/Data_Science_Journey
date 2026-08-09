@@ -7344,6 +7344,374 @@ Mean is one of the most commonly used statistical measures across industries.
 * Using Mean for categorical data.
 * Forgetting that outliers can significantly affect the Mean.
 
+
+# 📊 Day 33 – Statistics for Data Science + Generative AI
+
+## Median & Mode
+
+## 📌 Overview
+
+Today I learned **Median** and **Mode**, two important measures of central tendency used in Data Science.
+
+I learned how Median helps handle datasets containing outliers and how Mode identifies the most frequently occurring value. I also started connecting statistical concepts with the tools used by Data Scientists: **Pure Python, NumPy, and Pandas**.
+
+---
+
+# 🎯 Learning Objectives
+
+* Understand Median.
+* Calculate Median for odd and even datasets.
+* Understand Mode.
+* Identify unimodal, bimodal, and multimodal data.
+* Understand when Median is better than Mean.
+* Understand when Mode is useful.
+* Implement Median using Pure Python and NumPy.
+* Implement Mode using Pure Python and Pandas.
+
+---
+
+# 📚 Topics Covered
+
+## 1. Median
+
+The Median is the middle value of a dataset after arranging the observations in ascending order.
+
+### Odd Number of Observations
+
+Example:
+
+```text
+40, 60, 70, 80, 90
+```
+
+Median:
+
+```text
+70
+```
+
+### Even Number of Observations
+
+Example:
+
+```text
+50, 70, 80, 90
+```
+
+Median:
+
+```text
+(70 + 80) / 2 = 75
+```
+
+---
+
+# 2. Mode
+
+Mode is the value that occurs most frequently in a dataset.
+
+Example:
+
+```text
+2, 3, 3, 4, 5
+```
+
+Mode:
+
+```text
+3
+```
+
+### Types of Mode
+
+* **Unimodal** → One mode
+* **Bimodal** → Two modes
+* **Multimodal** → More than two modes
+* **No Mode** → No value occurs more frequently than the others
+
+Mode can also be applied to **categorical data**.
+
+Example:
+
+```text
+UPI, Cash, UPI, Card, UPI
+```
+
+Mode = `UPI`
+
+---
+
+# 🔄 Mean vs Median vs Mode
+
+| Measure | Main Use                                       |
+| ------- | ---------------------------------------------- |
+| Mean    | Average of numerical observations              |
+| Median  | Typical middle value, especially with outliers |
+| Mode    | Most frequently occurring value                |
+
+---
+
+# ⚠️ Outliers and Median
+
+Consider employee salaries:
+
+```text
+25000
+27000
+28000
+30000
+800000
+```
+
+The extreme salary significantly increases the Mean.
+
+The Median remains closer to the typical employee salary.
+
+Therefore, Median is often more appropriate for **skewed datasets** or datasets containing extreme values.
+
+---
+
+# 💻 Implementation
+
+## Pure Python – Median
+
+```python
+marks = [72, 85, 91, 67, 88]
+
+sorted_list = sorted(marks)
+middle_index = len(sorted_list) // 2
+middle_element = sorted_list[middle_index]
+
+print(sorted_list)
+print(middle_element)
+```
+
+---
+
+## NumPy – Median
+
+```python
+import numpy as np
+
+marks = [72, 85, 91, 67, 88]
+
+median = np.median(marks)
+
+print(median)
+```
+
+### Important
+
+NumPy provides:
+
+```python
+np.median()
+```
+
+but does **not** provide a basic:
+
+```python
+np.mode()
+```
+
+function.
+
+---
+
+## Pure Python – Mode
+
+```python
+ratings = [4, 5, 4, 3, 5, 4, 2]
+
+frequency = {}
+
+for rating in ratings:
+    frequency[rating] = frequency.get(rating, 0) + 1
+
+mode = max(frequency, key=frequency.get)
+
+print(mode)
+```
+
+Output:
+
+```text
+4
+```
+
+---
+
+## Pandas – Mode
+
+```python
+import pandas as pd
+
+ratings = [4, 5, 4, 3, 5, 4, 2]
+
+data = pd.Series(ratings)
+
+print(data.mode())
+```
+
+---
+
+# 📊 Mini Data Science Example
+
+```python
+import pandas as pd
+
+data = pd.DataFrame({
+    "Customer": ["A", "B", "C", "D", "E", "F", "G"],
+    "Purchase": [500, 700, 500, 900, 1200, 500, 800]
+})
+
+print(data["Purchase"].mean())
+print(data["Purchase"].median())
+print(data["Purchase"].mode())
+print(data["Purchase"].max())
+print(data["Purchase"].min())
+```
+
+### Results
+
+* Mean = **700**
+* Median = **500**
+* Mode = **500**
+* Maximum = **1200**
+* Minimum = **500**
+
+---
+
+# 🌍 Data Science Applications
+
+### Median
+
+* Employee salary analysis
+* House prices
+* Customer spending
+* Response latency
+* Income analysis
+
+### Mode
+
+* Most common payment method
+* Most purchased product
+* Most common customer category
+* Most common prompt category
+
+---
+
+# 🤖 AI & Generative AI Applications
+
+### Median
+
+Can be useful for analyzing:
+
+* Chatbot response latency
+* Model inference time
+* Token processing time
+
+Especially when occasional extreme values distort the Mean.
+
+### Mode
+
+Can be used to identify:
+
+* Most common prompt category
+* Most frequent user intent
+* Most common classification output
+
+---
+
+# 🧠 Key Learning
+
+I learned that statistical concepts should not be treated as isolated mathematical formulas.
+
+The same concept can be implemented through different levels:
+
+```text
+Mathematics
+    ↓
+Pure Python
+    ↓
+NumPy
+    ↓
+Pandas
+    ↓
+Real Data Science Dataset
+```
+
+This approach helps connect mathematical understanding with practical Data Science tools.
+
+---
+
+# ⚠️ Common Mistakes
+
+* Forgetting to sort data before calculating Median.
+* Choosing the wrong middle value.
+* Assuming every dataset has exactly one Mode.
+* Using Mean when extreme outliers strongly affect the result.
+* Assuming NumPy and Pandas provide identical statistical functions.
+
+---
+
+# 🎯 Day 33 Practice Result
+
+### Session 1
+
+✅ Median & Mode concepts
+
+### Session 2
+
+✅ Numerical Problems
+✅ Industry Scenarios
+✅ AI/GenAI Scenarios
+✅ Interview MCQs
+
+**Score: ~99%**
+
+### Session 3
+
+✅ Pure Python Median
+✅ NumPy Median
+✅ Pure Python Mode
+✅ Pandas Mode
+✅ Pandas DataFrame Mini Challenge
+
+**Score: 50/50**
+
+---
+
+# 🚀 Roadmap Progress
+
+### Python
+
+**30/30 Days — Completed ✅**
+
+### Mathematics for Data Science + Generative AI
+
+* ✅ Day 31 – Introduction to Statistics
+* ✅ Day 32 – Arithmetic Mean & Weighted Mean
+* ✅ Day 33 – Median & Mode
+
+**Statistics Progress: 3 Days Completed**
+
+---
+
+# ⏭️ Next
+
+## Day 34 – Mean vs Median vs Mode + Outliers
+
+Topics:
+
+* Comparing Mean, Median and Mode
+* Outliers
+* Effect of outliers on Mean
+* Robust statistics
+* Skewed data
+* Data Science case studies
+* NumPy/Pandas implementation
+
 # 👨‍💻 Author
 
 **Siva Kumar Reddy**
