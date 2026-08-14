@@ -7712,6 +7712,682 @@ Topics:
 * Data Science case studies
 * NumPy/Pandas implementation
 
+# Day 34 — Mean, Median, Mode & Outliers
+
+## 📌 Overview
+
+Day 34 focused on understanding the relationship between **Mean, Median, Mode, and Outliers**.
+
+The main goal was not just to calculate these measures, but to understand **which statistical measure should be used for a particular dataset and business problem**.
+
+I also continued connecting statistical concepts with **Pure Python, NumPy, and Pandas** for practical Data Science applications.
+
+---
+
+## 🎯 Learning Objectives
+
+* Understand Mean, Median, and Mode.
+* Compare Mean, Median, and Mode.
+* Understand what an outlier is.
+* Understand how outliers affect Mean.
+* Understand why Median is more robust to outliers.
+* Understand right-skewed and left-skewed data.
+* Understand the relationship between Mean and Median.
+* Choose the appropriate statistical measure for a dataset.
+* Apply statistics to business problems.
+* Apply statistics to AI/ML and GenAI problems.
+* Use Python, NumPy, and Pandas for statistical analysis.
+
+---
+
+# 📚 Topics Covered
+
+## 1. Mean
+
+Mean represents the arithmetic average of numerical observations.
+
+### Formula
+
+```text
+Mean = Sum of all observations / Number of observations
+```
+
+### Example
+
+```text
+10, 20, 30, 40, 50
+
+Mean = (10 + 20 + 30 + 40 + 50) / 5
+     = 150 / 5
+     = 30
+```
+
+### Python
+
+```python
+data = [10, 20, 30, 40, 50]
+
+mean = sum(data) / len(data)
+
+print("Mean:", mean)
+```
+
+### NumPy
+
+```python
+import numpy as np
+
+data = np.array([10, 20, 30, 40, 50])
+
+print("Mean:", np.mean(data))
+```
+
+### Pandas
+
+```python
+import pandas as pd
+
+data = pd.Series([10, 20, 30, 40, 50])
+
+print("Mean:", data.mean())
+```
+
+---
+
+## 2. Median
+
+Median is the **middle value** when the data is arranged in ascending or descending order.
+
+### Example — Odd Number of Observations
+
+```text
+10, 20, 30, 40, 50
+
+Median = 30
+```
+
+### Example — Even Number of Observations
+
+```text
+10, 20, 30, 40
+
+Median = (20 + 30) / 2
+       = 25
+```
+
+### Python
+
+```python
+data = [10, 20, 30, 40, 50]
+
+data.sort()
+
+n = len(data)
+
+if n % 2 == 1:
+    median = data[n // 2]
+else:
+    median = (data[n // 2 - 1] + data[n // 2]) / 2
+
+print("Median:", median)
+```
+
+### NumPy
+
+```python
+import numpy as np
+
+data = np.array([10, 20, 30, 40, 50])
+
+print("Median:", np.median(data))
+```
+
+### Pandas
+
+```python
+import pandas as pd
+
+data = pd.Series([10, 20, 30, 40, 50])
+
+print("Median:", data.median())
+```
+
+---
+
+## 3. Mode
+
+Mode is the value that occurs **most frequently** in a dataset.
+
+### Example
+
+```text
+10, 20, 20, 30, 40
+
+Mode = 20
+```
+
+### Python
+
+```python
+from collections import Counter
+
+data = [10, 20, 20, 30, 40]
+
+mode = Counter(data).most_common(1)[0][0]
+
+print("Mode:", mode)
+```
+
+### Pandas
+
+```python
+import pandas as pd
+
+data = pd.Series([10, 20, 20, 30, 40])
+
+print("Mode:", data.mode().tolist())
+```
+
+---
+
+# 4. Mean vs Median vs Mode
+
+| Measure | Meaning             | Sensitive to Outliers? | Common Use                          |
+| ------- | ------------------- | ---------------------- | ----------------------------------- |
+| Mean    | Average value       | Yes                    | Normally distributed numerical data |
+| Median  | Middle value        | No / much less         | Skewed data                         |
+| Mode    | Most frequent value | Usually no             | Categorical or repeated values      |
+
+### Example 1 — Normal Data
+
+```text
+10, 20, 30, 40, 50
+
+Mean   = 30
+Median = 30
+```
+
+Mean and Median are similar because there is no extreme value.
+
+### Example 2 — Data with an Outlier
+
+```text
+10, 20, 30, 40, 500
+
+Mean   = 120
+Median = 30
+```
+
+The value `500` dramatically increases the Mean, while the Median remains `30`.
+
+---
+
+# 5. What is an Outlier?
+
+An **outlier** is an observation that is unusually far away from the majority of the data.
+
+### Example 1 — Salary
+
+```text
+25000
+28000
+30000
+32000
+35000
+800000
+```
+
+`800000` is an obvious outlier compared with the other salaries.
+
+### Example 2 — Website Response Time
+
+```text
+120 ms
+130 ms
+125 ms
+140 ms
+135 ms
+5000 ms
+```
+
+`5000 ms` is an extreme observation and may indicate a system problem.
+
+---
+
+# 6. Effect of Outliers on Mean
+
+Mean is highly sensitive to extreme values.
+
+### Example
+
+Without outlier:
+
+```text
+10, 20, 30, 40, 50
+
+Mean = 30
+```
+
+With outlier:
+
+```text
+10, 20, 30, 40, 500
+
+Mean = 120
+```
+
+The Median remains:
+
+```text
+30
+```
+
+### Key Insight
+
+> **Outliers can pull the Mean toward extreme values.**
+
+Therefore, using Mean blindly can produce a misleading representation of the typical observation.
+
+---
+
+# 7. Why Median is Robust to Outliers
+
+Median depends on the **position of observations**, not their magnitude.
+
+Consider:
+
+```text
+10, 20, 30, 40, 50
+```
+
+Median:
+
+```text
+30
+```
+
+Now replace `50` with `500000`:
+
+```text
+10, 20, 30, 40, 500000
+```
+
+Median is still:
+
+```text
+30
+```
+
+The extreme value has almost no effect on the Median.
+
+---
+
+# 8. Right-Skewed Data
+
+Right-skewed data contains a long tail toward higher values.
+
+Usually:
+
+```text
+Mean > Median
+```
+
+### Example
+
+Income data:
+
+```text
+20K, 22K, 25K, 28K, 30K, 500K
+```
+
+A few very high salaries pull the Mean upward.
+
+### Business Example
+
+For employee salaries in a company, Median salary may provide a better representation of the **typical employee salary** when a small number of executives earn extremely high salaries.
+
+---
+
+# 9. Left-Skewed Data
+
+Left-skewed data contains a long tail toward lower values.
+
+Usually:
+
+```text
+Mean < Median
+```
+
+### Example
+
+```text
+10, 70, 80, 85, 90, 95
+```
+
+The low value pulls the Mean downward.
+
+### Business Example
+
+If most customers give high product ratings but a small number give extremely low ratings, the Mean can be pulled downward.
+
+---
+
+# 10. Relationship Between Mean and Median
+
+A useful rule of thumb:
+
+```text
+Symmetric Distribution:
+Mean ≈ Median
+
+Right-Skewed Distribution:
+Mean > Median
+
+Left-Skewed Distribution:
+Mean < Median
+```
+
+This relationship can help identify the general shape of a distribution.
+
+> Note: These are rules of thumb, not universal laws. Real datasets can violate them.
+
+---
+
+# 11. Choosing the Right Measure
+
+### Use Mean when:
+
+* Data is approximately symmetric.
+* There are no major outliers.
+* Every numerical observation should contribute proportionally.
+
+**Example:**
+
+Average temperature over a week.
+
+```text
+28, 29, 30, 31, 30, 29, 28
+```
+
+Mean is reasonable.
+
+---
+
+### Use Median when:
+
+* Data is skewed.
+* Outliers are present.
+* You want the typical observation.
+
+**Example:**
+
+House prices:
+
+```text
+₹40L, ₹45L, ₹50L, ₹55L, ₹5Cr
+```
+
+Median is generally more representative than Mean.
+
+---
+
+### Use Mode when:
+
+* You want the most frequently occurring value.
+* Data is categorical.
+* Frequency is more meaningful than average.
+
+**Example:**
+
+Most common customer payment method:
+
+```text
+UPI, Card, UPI, Cash, UPI, Card
+```
+
+Mode:
+
+```text
+UPI
+```
+
+---
+
+# 12. Pure Python Statistical Analysis
+
+```python
+from collections import Counter
+
+data = [10, 20, 20, 30, 40, 50]
+
+# Mean
+mean = sum(data) / len(data)
+
+# Median
+sorted_data = sorted(data)
+n = len(sorted_data)
+
+if n % 2 == 1:
+    median = sorted_data[n // 2]
+else:
+    median = (
+        sorted_data[n // 2 - 1] +
+        sorted_data[n // 2]
+    ) / 2
+
+# Mode
+mode = Counter(data).most_common(1)[0][0]
+
+print("Mean:", mean)
+print("Median:", median)
+print("Mode:", mode)
+```
+
+---
+
+# 13. NumPy Statistical Analysis
+
+```python
+import numpy as np
+
+data = np.array([10, 20, 20, 30, 40, 50])
+
+print("Mean:", np.mean(data))
+print("Median:", np.median(data))
+```
+
+NumPy is useful for fast numerical and statistical operations on arrays.
+
+---
+
+# 14. Pandas Statistical Analysis
+
+```python
+import pandas as pd
+
+data = pd.Series([10, 20, 20, 30, 40, 50])
+
+print("Mean:", data.mean())
+print("Median:", data.median())
+print("Mode:", data.mode().tolist())
+```
+
+Pandas is especially useful when working with real-world datasets stored in DataFrames.
+
+---
+
+# 15. Business Problem — Salary Analysis
+
+Consider:
+
+```python
+import pandas as pd
+
+data = pd.DataFrame({
+    "Employee": ["A", "B", "C", "D", "E", "F"],
+    "Salary": [25000, 28000, 30000, 32000, 35000, 800000]
+})
+
+print("Mean Salary:", data["Salary"].mean())
+print("Median Salary:", data["Salary"].median())
+print("Mode Salary:", data["Salary"].mode().tolist())
+```
+
+### Observation
+
+The `₹800,000` salary is much higher than the other salaries.
+
+Therefore:
+
+```text
+Mean Salary  → strongly affected by outlier
+Median Salary → more representative of typical employee
+```
+
+This demonstrates why Data Scientists should not blindly report the Mean.
+
+---
+
+# 16. Statistics in Data Science
+
+Mean, Median, and Mode are fundamental because they help with:
+
+* Exploratory Data Analysis (EDA)
+* Data Cleaning
+* Outlier Detection
+* Feature Engineering
+* Data Transformation
+* Business Analytics
+* Machine Learning
+* Model Evaluation
+
+A Data Scientist must understand the **meaning behind a statistical value**, not just calculate it.
+
+---
+
+# 🤖 17. Application in AI / ML
+
+Statistical measures are heavily used in Machine Learning.
+
+### Example 1 — Missing Value Imputation
+
+For a numerical feature with outliers:
+
+```text
+10
+12
+11
+13
+500
+NaN
+```
+
+Using the Mean can be problematic because `500` affects it heavily.
+
+Median may be a better choice:
+
+```python
+data["column"].fillna(data["column"].median())
+```
+
+### Example 2 — Model Evaluation
+
+Regression models commonly use metrics based on averages, such as:
+
+* MAE
+* MSE
+* RMSE
+
+Understanding how extreme errors influence these metrics is important when evaluating models.
+
+---
+
+# 🤖 18. Application in GenAI
+
+Statistical thinking is also useful in GenAI systems.
+
+### Example 1 — Token Usage
+
+Suppose an AI application receives requests with token counts:
+
+```text
+500
+600
+550
+700
+5000
+```
+
+The Mean is strongly affected by the `5000` token request.
+
+Median can better represent the typical request size.
+
+### Example 2 — API Response Time
+
+Suppose an AI application has response times:
+
+```text
+1.2s
+1.3s
+1.1s
+1.4s
+8.5s
+```
+
+The Mean may hide the typical response time because of the extreme latency.
+
+Median and percentile metrics can provide a more useful view of system performance.
+
+---
+
+# 🧠 Key Takeaways
+
+1. **Mean** represents the arithmetic average.
+2. **Median** represents the middle observation.
+3. **Mode** represents the most frequently occurring value.
+4. **Mean is sensitive to outliers.**
+5. **Median is more robust to extreme values.**
+6. Right-skewed data often has:
+
+```text
+Mean > Median
+```
+
+7. Left-skewed data often has:
+
+```text
+Mean < Median
+```
+
+8. Mean is not always the best measure of "average."
+9. Business context determines which statistical measure is appropriate.
+10. Statistics is a foundation for Data Science and Machine Learning.
+
+---
+
+# 💻 Tools Used
+
+* Python
+* NumPy
+* Pandas
+* Jupyter Notebook
+
+---
+
+# 📈 Day 34 Outcome
+
+By the end of Day 34, I understood that statistical analysis is not simply about calculating numbers.
+
+The important skill is understanding **what the numbers represent, how outliers influence them, and which measure provides the most meaningful representation of the data**.
+
+This forms an important foundation for **Exploratory Data Analysis, Machine Learning, and real-world Data Science**.
+
+---
+
+## 🔜 Next
+
+**Day 35 — Variance, Standard Deviation & Spread of Data**
+
 # 👨‍💻 Author
 
 **Siva Kumar Reddy**
