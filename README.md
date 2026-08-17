@@ -8382,11 +8382,258 @@ The important skill is understanding **what the numbers represent, how outliers 
 
 This forms an important foundation for **Exploratory Data Analysis, Machine Learning, and real-world Data Science**.
 
+# 📊 Day 35 — Quartiles & Percentiles
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Day-35-2563EB?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Statistics-Quartiles%20%26%20Percentiles-7C3AED?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Python-3.x-F7DF1E?style=for-the-badge&logo=python&logoColor=black" />
+  <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy" />
+  <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas" />
+</p>
+
+<p align="center">
+  <b>Mathematics for Data Science + Generative AI</b>
+</p>
+
 ---
 
-## 🔜 Next
+## 📌 Overview
 
-**Day 35 — Variance, Standard Deviation & Spread of Data**
+Day 35 focused on **quartiles and percentiles** — statistical techniques used to understand the relative position of observations within a dataset.
+
+The core question was:
+
+> **Where does a particular value stand compared with the rest of the data?**
+
+The concepts were implemented with **Python, NumPy, and Pandas**, then connected to practical Data Science and AI/GenAI scenarios including customer analytics, API performance, and LLM latency monitoring.
+
+---
+
+## 🎯 Learning Outcomes
+
+By completing this module, I can:
+
+* Explain **Q1, Q2, and Q3**
+* Interpret **P25, P50, P75, P90, P95, and P99**
+* Relate quartiles to percentiles
+* Calculate quartiles using the **median-of-halves method**
+* Understand percentile position and interpolation
+* Distinguish **percentage vs percentile**
+* Calculate percentiles using **NumPy**
+* Calculate quantiles using **Pandas**
+* Use **IQR for potential outlier detection**
+* Interpret percentiles in business scenarios
+* Explain why **P95/P99** matter in AI/API latency monitoring
+
+---
+
+## 🧠 Core Concepts
+
+### Quartiles
+
+Quartiles divide ordered observations into approximately four sections.
+
+```text
+Q1        Q2        Q3
+│         │         │
+25%       50%       75%
+```
+
+| Measure | Equivalent   |
+| ------- | ------------ |
+| **Q1**  | P25          |
+| **Q2**  | P50 = Median |
+| **Q3**  | P75          |
+
+### Percentiles
+
+Percentiles describe the relative position of a value within a distribution.
+
+```text
+P25   → 25th percentile
+P50   → 50th percentile
+P75   → 75th percentile
+P90   → 90th percentile
+P95   → 95th percentile
+P99   → 99th percentile
+```
+
+---
+
+## 🧪 Practical Example
+
+Dataset:
+
+```text
+10, 20, 30, 40, 50, 60, 70
+```
+
+Using the **median-of-halves method**:
+
+```text
+Q1 = 20
+Q2 = 40
+Q3 = 60
+```
+
+### Interquartile Range
+
+```text
+IQR = Q3 - Q1
+    = 60 - 20
+    = 40
+```
+
+---
+
+<details>
+<summary><b>🐍 NumPy Implementation</b></summary>
+
+```python
+import numpy as np
+
+data = [10, 20, 30, 40, 50, 60, 70]
+
+q1 = np.percentile(data, 25)
+q2 = np.percentile(data, 50)
+q3 = np.percentile(data, 75)
+
+print("Q1:", q1)
+print("Q2:", q2)
+print("Q3:", q3)
+```
+
+</details>
+
+<details>
+<summary><b>🐼 Pandas Implementation</b></summary>
+
+```python
+import pandas as pd
+
+data = pd.Series([10, 20, 30, 40, 50, 60, 70])
+
+print("Q1:", data.quantile(0.25))
+print("Q2:", data.quantile(0.50))
+print("Q3:", data.quantile(0.75))
+```
+
+</details>
+
+<details>
+<summary><b>🚨 IQR & Outlier Detection</b></summary>
+
+```text
+Lower Bound = Q1 - 1.5 × IQR
+Upper Bound = Q3 + 1.5 × IQR
+```
+
+Values outside these boundaries can be treated as **potential outliers** under the IQR rule.
+
+</details>
+
+---
+
+## 💼 Real-World Applications
+
+### Customer Analytics
+
+Percentiles can help identify differences in customer spending and support segmentation.
+
+```text
+P25 → Lower-spending segment
+P50 → Median customer
+P75 → Higher-spending segment
+```
+
+### 🤖 AI / GenAI Performance
+
+Percentiles are particularly useful for monitoring **API and LLM latency**.
+
+Example:
+
+```text
+P50 = 300 ms
+P90 = 600 ms
+P95 = 900 ms
+P99 = 2.5 sec
+```
+
+This provides visibility into **tail latency** that an average can hide.
+
+---
+
+## ⚠️ Important Statistical Insight
+
+Different statistical methods can produce slightly different percentile values.
+
+For example, a manually calculated quartile using the median-of-halves approach may differ from the result returned by NumPy's default percentile method.
+
+This is why it is important to understand:
+
+> **Not just the number returned by a tool, but the method used to calculate it.**
+
+---
+
+## 🛠️ Tools & Technologies
+
+```text
+Python
+NumPy
+Pandas
+Statistics
+Data Analysis
+```
+
+---
+
+## 📁 Repository Structure
+
+```text
+Day-35/
+│
+├── README.md
+├── quartiles_percentiles.py
+└── quartiles_percentiles.ipynb
+```
+
+---
+
+## ✅ Progress
+
+| Skill                | Status |
+| -------------------- | ------ |
+| Quartiles            | ✅      |
+| Percentiles          | ✅      |
+| Q1 / Q2 / Q3         | ✅      |
+| P25 / P50 / P75      | ✅      |
+| P90 / P95 / P99      | ✅      |
+| IQR                  | ✅      |
+| Outlier Detection    | ✅      |
+| NumPy                | ✅      |
+| Pandas               | ✅      |
+| Business Application | ✅      |
+| AI/GenAI Application | ✅      |
+
+---
+
+## 💡 Key Takeaway
+
+> **Mean describes the center of the data. Percentiles describe relative position. IQR describes the spread of the middle 50%.**
+
+---
+
+## 🚀 Next
+
+**Variance → Standard Deviation → Z-Score**
+
+---
+
+<p align="center">
+  <sub>Part of my ongoing Data Science + Generative AI learning journey.</sub>
+</p>
+
 
 # 👨‍💻 Author
 
