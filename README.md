@@ -8634,6 +8634,317 @@ Day-35/
   <sub>Part of my ongoing Data Science + Generative AI learning journey.</sub>
 </p>
 
+# 📊 Day 36 — Range & Interquartile Range (IQR)
+
+## 🚀 Data Science + Generative AI Learning Journey
+
+**Phase:** Mathematics for Data Science + Generative AI
+**Day:** 36
+**Topic:** Range & Interquartile Range (IQR)
+**Status:** ✅ Completed
+
+---
+
+# 📌 Overview
+
+Day 36 focused on **measures of spread**, especially **Range** and **Interquartile Range (IQR)**.
+
+In previous days, I learned how to describe the center and position of data using:
+
+* Mean
+* Median
+* Mode
+* Quartiles
+* Percentiles
+
+Day 36 focused on a different question:
+
+> **How spread out is the data?**
+
+I learned how **Range** measures the overall spread of data, while **IQR** measures the spread of the middle 50% of observations.
+
+I also learned how IQR can be used to identify **potential outliers** and implemented these concepts using **NumPy and Pandas**.
+
+---
+
+# 🎯 Learning Objectives
+
+By the end of Day 36, I learned how to:
+
+* Understand Range.
+* Calculate Range.
+* Understand the limitations of Range.
+* Understand Interquartile Range (IQR).
+* Calculate IQR.
+* Understand why IQR is more resistant to outliers than Range.
+* Calculate lower and upper IQR boundaries.
+* Identify potential outliers using the **1.5 × IQR rule**.
+* Understand that a statistical outlier is not automatically bad data.
+* Apply IQR to business data.
+* Apply IQR to AI/GenAI performance data.
+* Use NumPy for quartile calculations.
+* Use Pandas for quantile and outlier analysis.
+* Filter DataFrames to identify potential outliers.
+
+---
+
+# 📚 1. Range
+
+Range is the difference between the maximum and minimum values.
+
+## Formula
+
+```text
+Range = Maximum - Minimum
+```
+
+### Example
+
+```text
+Data = 10, 20, 30, 40, 50
+
+Range = 50 - 10
+      = 40
+```
+
+### Limitation
+
+Range depends only on the **minimum and maximum values**, so a single extreme value can significantly change it.
+
+---
+
+# 📚 2. Interquartile Range (IQR)
+
+IQR measures the spread of the **middle 50% of the data**.
+
+## Formula
+
+```text
+IQR = Q3 - Q1
+```
+
+Where:
+
+* **Q1** = 25th percentile
+* **Q3** = 75th percentile
+
+### Example
+
+```text
+Q1 = 20
+Q3 = 50
+
+IQR = 50 - 20
+    = 30
+```
+
+---
+
+# 📊 3. Range vs IQR
+
+| Measure | Measures          | Sensitive to Outliers? |
+| ------- | ----------------- | ---------------------- |
+| Range   | Overall spread    | Yes                    |
+| IQR     | Middle 50% spread | Much less              |
+
+### Key Insight
+
+> **Range tells us how wide the entire dataset is, while IQR tells us how spread out the central 50% is.**
+
+---
+
+# 🚨 4. IQR and Outlier Detection
+
+The **1.5 × IQR rule** is commonly used to identify potential outliers.
+
+## Lower Boundary
+
+```text
+Lower Bound = Q1 - 1.5 × IQR
+```
+
+## Upper Boundary
+
+```text
+Upper Bound = Q3 + 1.5 × IQR
+```
+
+Values outside these boundaries are considered **potential outliers**.
+
+### Example
+
+```text
+Q1 = 20
+Q3 = 50
+
+IQR = 50 - 20
+    = 30
+```
+
+```text
+Lower Bound = 20 - (1.5 × 30)
+            = -25
+```
+
+```text
+Upper Bound = 50 + (1.5 × 30)
+            = 95
+```
+
+Therefore:
+
+```text
+Values < -25 → Potential outliers
+Values > 95  → Potential outliers
+```
+
+---
+
+# ⚠️ 5. Outlier ≠ Bad Data
+
+An outlier is a value that is unusually far from the rest of the observations.
+
+It does **not automatically mean the data is incorrect**.
+
+### Example 1 — Business
+
+A company has employee salaries between ₹25,000 and ₹60,000, but the CEO earns ₹2,50,000.
+
+The CEO's salary may be a statistical outlier, but it is **valid data**.
+
+### Example 2 — AI/GenAI
+
+Most model response times are between 1–3 seconds, but one request takes 15 seconds.
+
+That observation may be an outlier because of:
+
+* Large input
+* API latency
+* Server load
+* Network issues
+* Model processing complexity
+
+The correct approach is to **investigate the outlier**, not automatically delete it.
+
+---
+
+# 🐍 6. NumPy Implementation
+
+```python
+import numpy as np
+
+data = [10, 20, 30, 40, 50, 60, 70]
+
+q1 = np.percentile(data, 25)
+q3 = np.percentile(data, 75)
+
+iqr = q3 - q1
+
+print("Q1:", q1)
+print("Q3:", q3)
+print("IQR:", iqr)
+```
+
+---
+
+# 🐼 7. Pandas Implementation
+
+```python
+import pandas as pd
+
+data = pd.DataFrame({
+    "Salary": [25000, 28000, 30000, 32000, 35000, 38000, 250000]
+})
+
+q1 = data["Salary"].quantile(0.25)
+q3 = data["Salary"].quantile(0.75)
+
+iqr = q3 - q1
+
+lower_bound = q1 - 1.5 * iqr
+upper_bound = q3 + 1.5 * iqr
+
+print("Q1:", q1)
+print("Q3:", q3)
+print("IQR:", iqr)
+print("Lower Bound:", lower_bound)
+print("Upper Bound:", upper_bound)
+```
+
+---
+
+# 🔎 8. Filtering Potential Outliers
+
+```python
+outliers = data[
+    (data["Salary"] < lower_bound) |
+    (data["Salary"] > upper_bound)
+]
+
+print(outliers)
+```
+
+This filters the observations that fall outside the IQR boundaries.
+
+---
+
+# 💼 9. Real-World Applications
+
+## Business Analytics
+
+IQR can help identify unusual:
+
+* Employee salaries
+* Transaction amounts
+* Customer spending
+* Delivery times
+* Sales values
+
+## AI / GenAI
+
+IQR can be used to analyze:
+
+* Model response latency
+* Token usage
+* API response times
+* Evaluation scores
+* Inference costs
+
+---
+
+# 🧠 Key Takeaways
+
+```text
+Range = Maximum - Minimum
+
+IQR = Q3 - Q1
+
+Lower Bound = Q1 - 1.5 × IQR
+
+Upper Bound = Q3 + 1.5 × IQR
+```
+
+### Most Important Concepts
+
+1. **Range measures total spread.**
+2. **IQR measures the middle 50% spread.**
+3. **Range is highly sensitive to extreme values.**
+4. **IQR is more resistant to outliers.**
+5. **1.5 × IQR is commonly used for potential outlier detection.**
+6. **An outlier is not automatically an error.**
+7. **Outliers should be investigated based on business context.**
+8. **NumPy and Pandas can automate quartile and IQR calculations.**
+
+---
+
+# 🚀 Day 36 Status
+
+**Completed:** ✅
+
+**Topics Covered:**
+Range → IQR → Quartiles → Outlier Detection → IQR Boundaries → NumPy → Pandas → Business Applications → AI/GenAI Applications
+
+**Next:** Continue with the next Mathematics for Data Science topic.
 
 # 👨‍💻 Author
 
