@@ -9672,6 +9672,483 @@ A better approach is to investigate the transaction and determine why it is unus
 * Data-entry error
 * Fraudulent transaction
 
+# 🎲 Day 40 — Probability Fundamentals
+
+## 🚀 Data Science Learning Journey
+
+**Phase:** Mathematics for Data Science
+**Module:** Probability
+**Day:** 40
+**Topic:** Probability Fundamentals, Probability Rules & Conditional Probability
+**Status:** ✅ Completed
+**Environment:** Jupyter Notebook
+
+---
+
+## 📌 Overview
+
+Day 40 marked the beginning of the **Probability** module.
+
+The focus was on understanding the fundamentals of probability, learning basic probability rules, and applying **conditional probability** to practical customer data.
+
+The day followed this progression:
+
+```text
+Probability Fundamentals
+        ↓
+Probability Rules
+        ↓
+Conditional Probability
+        ↓
+NumPy + Pandas
+        ↓
+Business Interpretation
+```
+
+---
+
+## 🎯 Learning Objectives
+
+By the end of Day 40, I learned how to:
+
+* Understand the meaning of probability.
+* Understand experiments, outcomes, and events.
+* Calculate basic probabilities.
+* Understand the probability range.
+* Apply the complement rule.
+* Apply the addition rule.
+* Understand mutually exclusive events.
+* Understand conditional probability.
+* Calculate conditional probabilities from data.
+* Use NumPy and Pandas for probability analysis.
+* Interpret probability in a business context.
+
+---
+
+# 📚 1. What Is Probability?
+
+**Probability** measures how likely an event is to occur.
+
+The probability of an event is always between **0 and 1**.
+
+```text
+0 ≤ P(A) ≤ 1
+```
+
+Where:
+
+* `P(A) = 0` → Event is impossible
+* `P(A) = 1` → Event is certain
+* Values between 0 and 1 → Different levels of likelihood
+
+### Example
+
+If a customer has a 70% probability of purchasing:
+
+```text
+P(Purchase) = 0.70
+```
+
+---
+
+# 🎲 2. Experiment, Outcome & Event
+
+### Experiment
+
+A process that produces an outcome.
+
+Example:
+
+```text
+Rolling a die
+```
+
+### Outcome
+
+A possible result of an experiment.
+
+```text
+1, 2, 3, 4, 5, 6
+```
+
+### Event
+
+A collection of one or more outcomes.
+
+Example:
+
+```text
+Rolling an even number
+```
+
+Event:
+
+```text
+{2, 4, 6}
+```
+
+---
+
+# 📊 3. Basic Probability Formula
+
+For equally likely outcomes:
+
+```text
+P(A) = Favorable Outcomes / Total Outcomes
+```
+
+### Example
+
+For a fair die, probability of rolling an even number:
+
+```text
+Favorable outcomes = 3
+Total outcomes = 6
+
+P(Even) = 3 / 6
+        = 0.5
+```
+
+Therefore:
+
+```text
+P(Even) = 50%
+```
+
+---
+
+# 🔄 4. Complement Rule
+
+The complement of an event means the event **does not occur**.
+
+### Formula
+
+```text
+P(Aᶜ) = 1 - P(A)
+```
+
+### Example
+
+If:
+
+```text
+P(Purchase) = 0.70
+```
+
+Then:
+
+```text
+P(No Purchase) = 1 - 0.70
+               = 0.30
+```
+
+Therefore:
+
+```text
+P(No Purchase) = 30%
+```
+
+---
+
+# ➕ 5. Addition Rule
+
+The addition rule is used to calculate the probability of **A or B**.
+
+For mutually exclusive events:
+
+```text
+P(A ∪ B) = P(A) + P(B)
+```
+
+### Example
+
+Suppose:
+
+```text
+P(Red) = 0.30
+P(Blue) = 0.20
+```
+
+If the events are mutually exclusive:
+
+```text
+P(Red or Blue) = 0.30 + 0.20
+               = 0.50
+```
+
+---
+
+# 🚫 6. Mutually Exclusive Events
+
+Two events are **mutually exclusive** when they cannot occur at the same time.
+
+### Example 1
+
+A single die roll cannot be both:
+
+```text
+2 and 5
+```
+
+### Example 2
+
+A customer cannot be classified as both:
+
+```text
+New Customer
+and
+Existing Customer
+```
+
+when those categories are defined as mutually exclusive.
+
+---
+
+# 🔀 7. Conditional Probability
+
+Conditional probability measures the probability of an event **given that another event has already occurred**.
+
+Where:
+
+* `A` = Event of interest
+* `B` = Given condition
+* `A ∩ B` = Both A and B occur
+
+### Key Idea
+
+> **Conditional probability changes the reference group.**
+
+Instead of asking:
+
+```text
+What is the probability that a customer purchases?
+```
+
+we might ask:
+
+```text
+What is the probability that a customer purchases
+given that they are a mobile user?
+```
+
+---
+
+# 👥 8. Customer Dataset Example
+
+Suppose we have:
+
+| Customer Type | Purchased | Count |
+| ------------- | --------- | ----: |
+| Mobile        | Yes       |    60 |
+| Mobile        | No        |    40 |
+| Desktop       | Yes       |    30 |
+| Desktop       | No        |    70 |
+
+Total customers:
+
+```text
+200
+```
+
+Overall purchase probability:
+
+```text
+P(Purchase) = 90 / 200
+            = 0.45
+```
+
+So:
+
+```text
+P(Purchase) = 45%
+```
+
+---
+
+# 📱 9. Conditional Probability Example
+
+Now consider only **mobile users**.
+
+There are:
+
+```text
+60 + 40 = 100 mobile users
+```
+
+Among them:
+
+```text
+60 purchased
+```
+
+Therefore:
+
+```text
+P(Purchase | Mobile)
+= 60 / 100
+= 0.60
+```
+
+So:
+
+```text
+P(Purchase | Mobile) = 60%
+```
+
+Compare:
+
+```text
+Overall Purchase Probability = 45%
+
+Purchase Probability | Mobile = 60%
+```
+
+This suggests mobile users have a higher observed purchase rate in this dataset.
+
+---
+
+# 🐍 10. Probability Using NumPy
+
+```python
+import numpy as np
+
+purchased = np.array([1, 1, 1, 0, 0, 1, 0, 1])
+
+probability = np.mean(purchased)
+
+print("Probability of Purchase:", probability)
+```
+
+Since the data uses:
+
+```text
+1 = Purchased
+0 = Not Purchased
+```
+
+the mean represents the proportion of customers who purchased.
+
+---
+
+# 🐼 11. Probability Using Pandas
+
+```python
+import pandas as pd
+
+data = pd.DataFrame({
+    "Mobile_User": ["Yes", "Yes", "No", "Yes", "No", "Yes"],
+    "Purchased": [1, 1, 0, 1, 0, 0]
+})
+
+purchase_rate = data["Purchased"].mean()
+
+print("Overall Purchase Probability:", purchase_rate)
+```
+
+### Conditional Probability
+
+```python
+mobile_users = data[data["Mobile_User"] == "Yes"]
+
+mobile_purchase_probability = mobile_users["Purchased"].mean()
+
+print("Purchase Probability | Mobile:",
+      mobile_purchase_probability)
+```
+
+---
+
+# 💼 12. Business Interpretation
+
+Probability allows businesses to reason about uncertainty and customer behavior.
+
+For example:
+
+```text
+P(Purchase) = 45%
+P(Purchase | Mobile) = 60%
+```
+
+The observed purchase rate is higher among mobile users.
+
+A business could investigate whether:
+
+* Mobile users respond better to promotions.
+* The mobile experience is better optimized.
+* Mobile users have different purchasing behavior.
+* A mobile-specific campaign could improve conversions.
+
+**Important:** A higher conditional probability shows an association in the observed data. It does **not automatically prove that being a mobile user causes the purchase.**
+
+---
+
+# 🧠 13. Key Data Science Lessons
+
+* Probability measures the likelihood of an event.
+* Probability ranges from `0` to `1`.
+* The complement rule calculates the probability of an event not occurring.
+* Addition rules help calculate probabilities involving multiple events.
+* Mutually exclusive events cannot happen simultaneously.
+* Conditional probability considers additional information.
+* Conditional probability changes the population being analyzed.
+* Pandas can calculate probabilities using proportions and group filtering.
+* Probability helps quantify uncertainty in business and data science.
+* A probability relationship does not automatically imply causation.
+
+---
+
+# 🔑 Key Formulas
+
+### Basic Probability
+
+```text
+P(A) = Favorable Outcomes / Total Outcomes
+```
+
+### Complement Rule
+
+```text
+P(Aᶜ) = 1 - P(A)
+```
+
+### Mutually Exclusive Addition Rule
+
+```text
+P(A ∪ B) = P(A) + P(B)
+```
+
+### Conditional Probability
+
+```text
+P(A|B) = P(A ∩ B) / P(B)
+```
+
+---
+
+# 🚀 Day 40 Status
+
+**Completed:** ✅
+
+### Skills Practiced
+
+```text
+Probability
+    ↓
+Probability Rules
+    ↓
+Complement
+    ↓
+Mutually Exclusive Events
+    ↓
+Conditional Probability
+    ↓
+NumPy + Pandas
+    ↓
+Business Interpretation
+```
+
+**Next:** Continue with the next topic in the Probability module.
+
 # 👨‍💻 Author
 
 **Siva Kumar Reddy**
