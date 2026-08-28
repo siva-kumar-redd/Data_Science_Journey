@@ -10580,6 +10580,483 @@ Business Interpretation
 
 **Next:** Continue with the next topic in the Probability module.
 
+# 🎲 Day 42 — Random Variables & Expected Value
+
+## 🚀 Data Science Learning Journey
+
+**Phase:** Mathematics for Data Science
+**Module:** Probability
+**Day:** 42
+**Topic:** Random Variables + Expected Value
+**Status:** ✅ Completed
+**Environment:** Jupyter Notebook
+
+---
+
+## 📌 Overview
+
+Day 42 focused on **Random Variables, Probability Distributions, Expected Value, Variance, and Standard Deviation**.
+
+The main goal was to understand how probability outcomes can be represented numerically and how **Expected Value** describes the long-run average outcome of a random variable.
+
+The learning progression was:
+
+```text
+Probability
+    ↓
+Random Variable
+    ↓
+Probability Distribution
+    ↓
+Expected Value
+    ↓
+Variance
+    ↓
+Standard Deviation
+```
+
+---
+
+## 🎯 Learning Objectives
+
+By the end of Day 42, I learned how to:
+
+* Understand Random Variables.
+* Distinguish between discrete and continuous random variables.
+* Understand Probability Distributions.
+* Understand probability values associated with outcomes.
+* Calculate Expected Value.
+* Interpret Expected Value as a long-run average.
+* Understand Variance of a Random Variable.
+* Understand Standard Deviation of a Random Variable.
+* Compare Expected Value, Variance, and Standard Deviation.
+* Implement probability calculations using Python and NumPy.
+* Apply Expected Value to practical business problems.
+
+---
+
+# 🎲 1. Random Variable
+
+A **Random Variable** is a variable that assigns a numerical value to the outcome of a random experiment.
+
+### Example 1 — Dice
+
+If a die is rolled:
+
+```text
+X = Number obtained
+```
+
+Possible values:
+
+```text
+X ∈ {1, 2, 3, 4, 5, 6}
+```
+
+### Example 2 — Customer Purchase
+
+We can define:
+
+```text
+X = 1 → Customer purchases
+X = 0 → Customer does not purchase
+```
+
+The random variable converts an uncertain outcome into a numerical value.
+
+---
+
+# 📊 2. Types of Random Variables
+
+## Discrete Random Variable
+
+A discrete random variable takes **countable values**.
+
+Examples:
+
+* Number of customers
+* Number of purchases
+* Number of defective products
+* Number shown on a die
+
+```text
+0, 1, 2, 3, 4, ...
+```
+
+---
+
+## Continuous Random Variable
+
+A continuous random variable can take values within a range.
+
+Examples:
+
+* Customer spending
+* Response time
+* Height
+* Temperature
+* Delivery time
+
+For example:
+
+```text
+Response Time = 2.37 seconds
+```
+
+---
+
+# 📈 3. Probability Distribution
+
+A probability distribution describes the possible values of a random variable and their associated probabilities.
+
+### Example
+
+For a fair six-sided die:
+
+|  X | P(X) |
+| -: | ---: |
+|  1 |  1/6 |
+|  2 |  1/6 |
+|  3 |  1/6 |
+|  4 |  1/6 |
+|  5 |  1/6 |
+|  6 |  1/6 |
+
+The probabilities must satisfy:
+
+```text
+Σ P(X = x) = 1
+```
+
+---
+
+# 🎯 4. Expected Value
+
+**Expected Value** represents the theoretical long-run average outcome of a random variable.
+
+For a discrete random variable:
+
+```text
+E[X] = Σ xP(X = x)
+```
+
+In simple terms:
+
+> **Expected Value is a probability-weighted average of possible outcomes.**
+
+---
+
+# 🧮 5. Expected Value Example
+
+Consider a game with two possible outcomes:
+
+```text
+Win  → ₹100
+Lose → ₹0
+```
+
+Suppose:
+
+```text
+P(Win)  = 0.30
+P(Lose) = 0.70
+```
+
+Expected Value:
+
+```text
+E[X] = (100 × 0.30) + (0 × 0.70)
+
+     = 30
+```
+
+Therefore:
+
+```text
+Expected Value = ₹30
+```
+
+This does **not** mean you will receive exactly ₹30 in one game.
+
+It means that over many repetitions, the average outcome would approach ₹30 under the same probabilities.
+
+---
+
+# 💼 6. Business Example
+
+Suppose a company has the following customer outcomes:
+
+| Outcome             | Profit | Probability |
+| ------------------- | -----: | ----------: |
+| High-value purchase | ₹1,000 |        0.10 |
+| Normal purchase     |   ₹400 |        0.30 |
+| No purchase         |     ₹0 |        0.60 |
+
+Expected profit:
+
+```text
+E[X] = (1000 × 0.10)
+     + (400 × 0.30)
+     + (0 × 0.60)
+
+     = 100 + 120
+     = ₹220
+```
+
+Therefore:
+
+```text
+Expected Profit per Customer = ₹220
+```
+
+This can help businesses estimate average revenue or profit under uncertainty.
+
+---
+
+# 📐 7. Variance of a Random Variable
+
+Variance measures how much the possible outcomes vary around the Expected Value.
+
+One formula is:
+
+```text
+Var(X) = E[(X - μ)²]
+```
+
+Another useful form is:
+
+```text
+Var(X) = E[X²] - (E[X])²
+```
+
+Where:
+
+```text
+μ = E[X]
+```
+
+Variance is always non-negative.
+
+---
+
+# 📊 8. Standard Deviation
+
+Standard Deviation is the square root of Variance.
+
+```text
+σ = √Var(X)
+```
+
+It measures the typical spread of values around the Mean or Expected Value and is expressed in the **same units as the original variable**.
+
+For example:
+
+```text
+Expected Revenue → ₹
+Standard Deviation → ₹
+```
+
+This makes Standard Deviation easier to interpret than Variance in many practical situations.
+
+---
+
+# 🔗 9. Expected Value, Variance & Standard Deviation
+
+These concepts are connected:
+
+```text
+Random Variable
+       ↓
+Probability Distribution
+       ↓
+Expected Value
+       ↓
+Variance
+       ↓
+Standard Deviation
+```
+
+### Interpretation
+
+| Measure            | Meaning                                  |
+| ------------------ | ---------------------------------------- |
+| Expected Value     | Long-run average                         |
+| Variance           | Squared spread around the Expected Value |
+| Standard Deviation | Spread in original units                 |
+
+---
+
+# 🐍 10. Python / NumPy Implementation
+
+```python
+import numpy as np
+
+outcomes = np.array([0, 100])
+probabilities = np.array([0.70, 0.30])
+
+expected_value = np.sum(outcomes * probabilities)
+
+print("Expected Value:", expected_value)
+```
+
+Output:
+
+```text
+Expected Value: 30.0
+```
+
+---
+
+# 📊 11. Calculating Variance
+
+```python
+variance = np.sum(
+    probabilities * (outcomes - expected_value) ** 2
+)
+
+print("Variance:", variance)
+```
+
+---
+
+# 📈 12. Calculating Standard Deviation
+
+```python
+standard_deviation = np.sqrt(variance)
+
+print("Standard Deviation:", standard_deviation)
+```
+
+This demonstrates the relationship:
+
+```text
+Variance
+   ↓ √
+Standard Deviation
+```
+
+---
+
+# 💼 13. Real-World Applications
+
+Expected Value is useful for decision-making under uncertainty.
+
+### Business
+
+* Expected revenue
+* Expected profit
+* Customer lifetime value
+* Insurance risk
+* Investment returns
+* Marketing outcomes
+
+### Data Science
+
+* Probability modeling
+* Risk analysis
+* Statistical inference
+* Decision-making under uncertainty
+* Machine learning probability models
+
+### AI / GenAI
+
+Expected-value reasoning can help analyze:
+
+* Expected API costs
+* Expected token usage
+* Expected response latency
+* Model performance under uncertain outcomes
+* Probabilistic decision systems
+
+---
+
+# ⚠️ 14. Important Insight
+
+Expected Value is a **theoretical average**, not necessarily an outcome that must actually occur.
+
+For example:
+
+```text
+Possible outcomes:
+₹0 or ₹100
+
+Expected Value:
+₹30
+```
+
+₹30 may never occur as an individual outcome.
+
+It represents the average result we would expect over a large number of repetitions.
+
+---
+
+# 🧠 Key Data Science Lessons
+
+* A **Random Variable** represents uncertain outcomes numerically.
+* Random Variables can be **discrete or continuous**.
+* A **Probability Distribution** assigns probabilities to possible outcomes.
+* Expected Value is a **probability-weighted average**.
+* Expected Value represents a long-run average.
+* Variance measures squared spread around the Expected Value.
+* Standard Deviation is the square root of Variance.
+* Standard Deviation is expressed in the original units.
+* Expected Value is useful for decision-making under uncertainty.
+* Probability concepts form an important foundation for Machine Learning and Data Science.
+
+---
+
+# 🔑 Key Formulas
+
+### Expected Value
+
+```text
+E[X] = Σ xP(X = x)
+```
+
+### Variance
+
+```text
+Var(X) = E[(X - μ)²]
+```
+
+### Alternative Variance Formula
+
+```text
+Var(X) = E[X²] - (E[X])²
+```
+
+### Standard Deviation
+
+```text
+σ = √Var(X)
+```
+
+---
+
+# 🚀 Day 42 Status
+
+**Completed:** ✅
+
+### Skills Practiced
+
+```text
+Random Variables
+       ↓
+Probability Distributions
+       ↓
+Expected Value
+       ↓
+Variance
+       ↓
+Standard Deviation
+       ↓
+Python + NumPy
+       ↓
+Business Interpretation
+```
+
+**Next:** Continue with the next topic in the Probability module.
+
 # 👨‍💻 Author
 
 **Siva Kumar Reddy**
