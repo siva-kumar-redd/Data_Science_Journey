@@ -11057,6 +11057,244 @@ Business Interpretation
 
 **Next:** Continue with the next topic in the Probability module.
 
+# 🎲 Day 42 — Probability Distributions
+
+## 🚀 Data Science Learning Journey
+
+**Phase:** Mathematics for Data Science  
+**Module:** Probability  
+**Day:** 42  
+**Topic:** Probability Distributions  
+**Status:** ✅ Completed  
+**Environment:** Jupyter Notebook
+
+---
+
+## 📌 Overview
+
+Day 42 focused on **Probability Distributions**, an important concept in Data Science used to describe how probabilities are assigned to possible values of a random variable.
+
+The main distributions covered were:
+
+- Bernoulli Distribution
+- Binomial Distribution
+- Poisson Distribution
+- Normal Distribution
+
+The session also covered their formulas, parameters, real-world applications, and basic numerical implementation using NumPy.
+
+---
+
+# 📚 1. Bernoulli Distribution
+
+A **Bernoulli distribution** models a single trial with only two possible outcomes:
+
+- Success = 1
+- Failure = 0
+
+### Parameter
+
+\[
+p = P(X=1)
+\]
+
+### Mean
+
+\[
+\mu = p
+\]
+
+### Variance
+
+\[
+\sigma^2 = p(1-p)
+\]
+
+### Examples
+
+- Customer clicked an advertisement: Yes / No
+- Email opened: Yes / No
+- Transaction is fraudulent: Yes / No
+
+---
+
+# 📊 2. Binomial Distribution
+
+A **Binomial distribution** models the number of successes in `n` independent Bernoulli trials.
+
+### Formula
+
+\[
+P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}
+\]
+
+Where:
+
+- `n` = number of trials
+- `k` = number of successes
+- `p` = probability of success
+
+### Mean
+
+\[
+\mu=np
+\]
+
+### Variance
+
+\[
+\sigma^2=np(1-p)
+\]
+
+### Examples
+
+- Number of defective products in a sample
+- Number of successful sales calls
+- Number of heads in repeated coin tosses
+
+---
+
+# ⏱️ 3. Poisson Distribution
+
+A **Poisson distribution** models the number of events occurring within a fixed interval of time or space.
+
+### Formula
+
+\[
+P(X=k)=\frac{e^{-\lambda}\lambda^k}{k!}
+\]
+
+Where:
+
+- `λ` = average number of events
+- `k` = number of events
+
+### Mean
+
+\[
+\mu=\lambda
+\]
+
+### Variance
+
+\[
+\sigma^2=\lambda
+\]
+
+### Examples
+
+- Customer calls received per hour
+- Website visitors per minute
+- Number of system failures per day
+
+---
+
+# 🔔 4. Normal Distribution
+
+The **Normal distribution** is a continuous, symmetric, bell-shaped distribution.
+
+It is described by:
+
+- Mean `μ`
+- Standard deviation `σ`
+
+### Probability Density Function
+
+\[
+f(x)=\frac{1}{\sigma\sqrt{2\pi}}
+e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}
+\]
+
+### Important Rule
+
+Approximately:
+
+- **68%** of observations lie within ±1 standard deviation
+- **95%** lie within ±2 standard deviations
+- **99.7%** lie within ±3 standard deviations
+
+### Examples
+
+- Heights
+- Exam scores
+- Measurement errors
+- Delivery times
+
+---
+
+# 🏢 5. Business & Data Science Applications
+
+Probability distributions help Data Scientists model uncertainty and understand patterns in real-world data.
+
+| Distribution | Typical Use |
+|---|---|
+| Bernoulli | Yes/No outcomes |
+| Binomial | Number of successes in fixed trials |
+| Poisson | Number of events in an interval |
+| Normal | Continuous measurements |
+
+---
+
+# 🧮 6. Example — Binomial Distribution
+
+Suppose a product has a **20% defective rate**.
+
+\[
+p=0.2
+\]
+
+A sample contains:
+
+\[
+n=5
+\]
+
+items.
+
+The probability of getting `k` defective items is calculated using:
+
+\[
+P(X=k)=\binom{5}{k}(0.2)^k(0.8)^{5-k}
+\]
+
+The probabilities are:
+
+| Defective Items | Probability |
+|---:|---:|
+| 0 | 0.32768 |
+| 1 | 0.40960 |
+| 2 | 0.20480 |
+| 3 | 0.05120 |
+| 4 | 0.00640 |
+| 5 | 0.00032 |
+
+Total probability:
+
+\[
+1.00000
+\]
+
+---
+
+# 💻 7. NumPy Implementation
+
+A probability distribution can also be represented and calculated using NumPy.
+
+```python
+import numpy as np
+
+x = np.array([0, 1, 2])
+p = np.array([0.2, 0.5, 0.3])
+
+expected_value = np.sum(x * p)
+
+variance = np.sum((x - expected_value) ** 2 * p)
+
+standard_deviation = np.sqrt(variance)
+
+print("Expected Value:", expected_value)
+print("Variance:", variance)
+print("Standard Deviation:", standard_deviation)
 # 👨‍💻 Author
 
 **Siva Kumar Reddy**
