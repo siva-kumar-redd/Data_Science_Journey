@@ -12110,6 +12110,376 @@ P(A\cap B)=P(A)P(B|A)
 ### Day 46 Status: COMPLETED ✅
 
 > **Probability is not just about calculating numbers — it's about understanding relationships between events and interpreting them correctly.**
+
+# 📘 Day 47 — Probability Rules & Event Relationships
+
+## 🎯 Objective
+
+Learn the core probability rules for **NOT, AND, OR**, and understand the difference between **mutually exclusive** and **independent** events.
+
+---
+
+## 📚 Topics Covered
+
+- Complement Rule
+- Intersection / AND
+- Union / OR
+- Addition Rule
+- Mutually Exclusive Events
+- Independent vs Mutually Exclusive Events
+- Venn Diagram intuition
+- Business Application
+- Probability vs Count
+
+---
+
+## 1️⃣ Complement Rule — NOT
+
+The complement of event \(A\), written as \(A^c\), means that **A does not occur**.
+
+### Formula
+
+\[
+\boxed{P(A^c)=1-P(A)}
+\]
+
+### Example
+
+If:
+
+\[
+P(\text{Churn})=8\%
+\]
+
+Then:
+
+\[
+P(\text{No Churn})
+=
+1-0.08
+=
+0.92
+=
+\boxed{92\%}
+\]
+
+---
+
+## 2️⃣ Intersection — AND
+
+The intersection means that **A and B both occur**.
+
+### Symbol
+
+\[
+A\cap B
+\]
+
+### General Formula
+
+\[
+\boxed{
+P(A\cap B)=P(A)\times P(B|A)
+}
+\]
+
+For independent events:
+
+\[
+\boxed{
+P(A\cap B)=P(A)\times P(B)
+}
+\]
+
+### Example
+
+A customer clicks an advertisement **AND** purchases the product.
+
+---
+
+## 3️⃣ Union — OR
+
+The union means:
+
+> A occurs, B occurs, or both occur.
+
+### Symbol
+
+\[
+A\cup B
+\]
+
+### Addition Rule
+
+\[
+\boxed{
+P(A\cup B)
+=
+P(A)+P(B)-P(A\cap B)
+}
+\]
+
+The intersection is subtracted because the overlapping customers would otherwise be counted twice.
+
+### Example
+
+Suppose:
+
+- \(P(App)=40\%\)
+- \(P(Website)=30\%\)
+- \(P(App\cap Website)=10\%\)
+
+Then:
+
+\[
+P(App\cup Website)
+=
+40\%+30\%-10\%
+\]
+
+\[
+=\boxed{60\%}
+\]
+
+---
+
+## 4️⃣ Mutually Exclusive Events
+
+Two events are **mutually exclusive** when they cannot occur together.
+
+Therefore:
+
+\[
+\boxed{P(A\cap B)=0}
+\]
+
+For mutually exclusive events:
+
+\[
+\boxed{
+P(A\cup B)=P(A)+P(B)
+}
+\]
+
+### Example
+
+For one die roll:
+
+- \(A\) = rolling a 2
+- \(B\) = rolling a 5
+
+Both cannot happen on the same roll.
+
+Therefore:
+
+\[
+P(A\cap B)=0
+\]
+
+---
+
+## 5️⃣ Independent vs Mutually Exclusive
+
+These concepts are different.
+
+### Independent Events
+
+One event does not change the probability of the other.
+
+\[
+\boxed{P(B|A)=P(B)}
+\]
+
+Independent events can occur together.
+
+### Mutually Exclusive Events
+
+The events cannot happen together.
+
+\[
+\boxed{P(A\cap B)=0}
+\]
+
+### Important Relationship
+
+For events with non-zero probabilities:
+
+\[
+\boxed{
+\text{Mutually Exclusive}
+\Rightarrow
+\text{Dependent}
+}
+\]
+
+Because if A happens, B becomes impossible.
+
+---
+
+## 6️⃣ Venn Diagram Intuition
+
+Think of:
+
+- \(A\) = one group
+- \(B\) = another group
+- \(A\cap B\) = their overlap
+- \(A\cup B\) = everything belonging to A or B
+
+For overlapping events:
+
+\[
+P(A\cup B)
+=
+P(A)+P(B)-P(A\cap B)
+\]
+
+For mutually exclusive events, there is no overlap:
+
+\[
+P(A\cap B)=0
+\]
+
+---
+
+## 🏢 7️⃣ Industry Example — E-commerce
+
+A company has **10,000 customers**:
+
+- 6,000 use the mobile app
+- 4,000 use the website
+- 2,500 use both
+
+Let:
+
+- \(A\) = uses mobile app
+- \(B\) = uses website
+
+### Mobile Probability
+
+\[
+P(A)=\frac{6000}{10000}=0.60=60\%
+\]
+
+### Website Probability
+
+\[
+P(B)=\frac{4000}{10000}=0.40=40\%
+\]
+
+### Both
+
+\[
+P(A\cap B)
+=
+\frac{2500}{10000}
+=
+0.25
+=
+25\%
+\]
+
+### App OR Website
+
+\[
+P(A\cup B)
+=
+0.60+0.40-0.25
+\]
+
+\[
+=\boxed{0.75=75\%}
+\]
+
+Therefore:
+
+\[
+10000\times0.75
+=
+\boxed{7500}
+\]
+
+So **75% of customers, or 7,500 customers, use the mobile app or website or both.**
+
+---
+
+## ⚠️ Common Mistake
+
+Do not confuse:
+
+\[
+6000
+\]
+
+with:
+
+\[
+60\%
+\]
+
+The first is a **count**.
+
+The second is a **probability/proportion**.
+
+### Conversion
+
+\[
+\boxed{
+\text{Probability}
+=
+\frac{\text{Count}}{\text{Total}}
+}
+\]
+
+---
+
+## 🧠 Key Takeaways
+
+- Complement = **NOT**
+- Intersection = **AND**
+- Union = **OR**
+- Complement rule:
+
+\[
+P(A^c)=1-P(A)
+\]
+
+- Addition rule:
+
+\[
+P(A\cup B)=P(A)+P(B)-P(A\cap B)
+\]
+
+- Mutually exclusive events have no overlap.
+- Independent events do not change each other's probabilities.
+- Independent and mutually exclusive are **not the same concept**.
+- Always distinguish **counts from probabilities**.
+- Correct business interpretation is as important as calculation.
+
+---
+
+## 🔑 Quick Reference
+
+| Concept | Formula / Meaning |
+|---|---|
+| Complement | \(P(A^c)=1-P(A)\) |
+| Intersection / AND | \(P(A\cap B)\) |
+| Union / OR | \(P(A\cup B)\) |
+| Addition Rule | \(P(A)+P(B)-P(A\cap B)\) |
+| Mutually Exclusive | \(P(A\cap B)=0\) |
+| Independent | \(P(B|A)=P(B)\) |
+| General Multiplication | \(P(A\cap B)=P(A)P(B|A)\) |
+
+---
+
+## 🚀 Progress
+
+**Python:** Days 1–30 ✅  
+**Descriptive Statistics:** Days 31–39 ✅  
+**Probability:** Days 40–47 ✅
+
+### Day 47 Status: COMPLETED ✅
+
+> **Probability becomes useful when you can translate mathematical relationships into real-world decisions.**
 # 👨‍💻 Author
 
 **Siva Kumar Reddy**
