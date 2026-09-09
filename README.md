@@ -11815,6 +11815,301 @@ This demonstrates an important Data Science skill:
 **Day 45 Status: COMPLETED ✅**
 
 > **From sample data to better decisions. 📈**
+
+
+# 📘 Day 46 — Independence & Multiplication Rule
+
+## 🎯 Objective
+
+Understand independent and dependent events and learn how the multiplication rule is used to calculate the probability that two events occur together.
+
+---
+
+## 📚 Topics Covered
+
+- Independent Events
+- Dependent Events
+- Conditional Probability
+- Multiplication Rule
+- General Multiplication Rule
+- Joint Probability
+- Business Application
+- Association vs Causation
+
+---
+
+## 1️⃣ Independent Events
+
+Two events are **independent** when the occurrence of one event does not change the probability of the other.
+
+### Example
+
+A fair coin is tossed twice.
+
+The result of the first toss does not affect the second toss.
+
+Therefore, the two tosses are independent.
+
+### Mathematical Condition
+
+\[
+P(B|A)=P(B)
+\]
+
+---
+
+## 2️⃣ Multiplication Rule for Independent Events
+
+For independent events:
+
+\[
+\boxed{P(A\cap B)=P(A)\times P(B)}
+\]
+
+Here:
+
+\[
+A\cap B
+\]
+
+means **A AND B both occur**.
+
+### Example
+
+A fair coin is tossed twice.
+
+\[
+P(H)=\frac12
+\]
+
+Therefore:
+
+\[
+P(H\cap H)
+=
+\frac12\times\frac12
+=
+\frac14
+=
+25\%
+\]
+
+So the probability of getting Heads twice is:
+
+\[
+\boxed{25\%}
+\]
+
+---
+
+## 3️⃣ Dependent Events
+
+Events are **dependent** when one event changes the probability of another.
+
+For dependent events, we cannot simply multiply the two individual probabilities.
+
+### Example
+
+Suppose a customer clicks an advertisement.
+
+The probability that the customer purchases the product may change after the click.
+
+Therefore:
+
+\[
+P(\text{Purchase}|\text{Click})
+\]
+
+may differ from:
+
+\[
+P(\text{Purchase})
+\]
+
+---
+
+## 4️⃣ General Multiplication Rule
+
+For any two events:
+
+\[
+\boxed{
+P(A\cap B)
+=
+P(A)\times P(B|A)
+}
+\]
+
+This works for both dependent and independent events.
+
+If A and B are independent:
+
+\[
+P(B|A)=P(B)
+\]
+
+Therefore:
+
+\[
+P(A\cap B)
+=
+P(A)\times P(B)
+\]
+
+---
+
+## 5️⃣ Industry Example — Customer Purchase
+
+Suppose:
+
+- 60% of customers are mobile users.
+- Among mobile users, 20% make a purchase.
+
+Then:
+
+\[
+P(\text{Mobile})=0.60
+\]
+
+\[
+P(\text{Purchase}|\text{Mobile})=0.20
+\]
+
+Therefore:
+
+\[
+P(\text{Mobile}\cap\text{Purchase})
+=
+0.60\times0.20
+\]
+
+\[
+=\boxed{0.12=12\%}
+\]
+
+So approximately **12% of all customers are both mobile users and purchasers**.
+
+---
+
+# 🏢 Business Case — E-commerce Advertising
+
+A company has:
+
+- 10,000 customers
+- 2,000 clicked an advertisement
+- 500 of those customers purchased
+
+### Probability of Click
+
+\[
+P(\text{Click})
+=
+\frac{2000}{10000}
+=
+20\%
+\]
+
+### Probability of Purchase Given Click
+
+\[
+P(\text{Purchase}|\text{Click})
+=
+\frac{500}{2000}
+=
+25\%
+\]
+
+### Probability of Both Click and Purchase
+
+Using the general multiplication rule:
+
+\[
+P(\text{Click}\cap\text{Purchase})
+=
+0.20\times0.25
+\]
+
+\[
+=\boxed{5\%}
+\]
+
+Therefore:
+
+\[
+10,000\times5\%=500
+\]
+
+So **500 customers both clicked and purchased**.
+
+---
+
+## ⚠️ Association vs Causation
+
+Observing that customers who click an advertisement are more likely to purchase does **not automatically prove that the advertisement caused the purchase**.
+
+There may be other factors.
+
+For example:
+
+- Customers may already be interested in the product.
+- Interested customers may be more likely to click.
+- Those same customers may also be more likely to purchase.
+
+Therefore:
+
+\[
+\boxed{\text{Association}\neq\text{Causation}}
+\]
+
+Proper experiments such as **A/B testing** are needed to investigate causal effects.
+
+---
+
+## 🧠 Key Takeaways
+
+- Independent events do not affect each other's probabilities.
+- Dependent events can affect each other's probabilities.
+- \(A\cap B\) means **A AND B**.
+- For independent events:
+
+\[
+P(A\cap B)=P(A)P(B)
+\]
+
+- General multiplication rule:
+
+\[
+P(A\cap B)=P(A)P(B|A)
+\]
+
+- Never automatically assume independence.
+- Probability calculations describe relationships; they do not automatically establish causation.
+- Business interpretation is as important as mathematical calculation.
+
+---
+
+## 🔑 Quick Reference
+
+| Concept | Formula / Meaning |
+|---|---|
+| Independent Events | \(P(B|A)=P(B)\) |
+| Dependent Events | \(P(B|A)\neq P(B)\) |
+| AND | \(A\cap B\) |
+| Independent Multiplication | \(P(A\cap B)=P(A)P(B)\) |
+| General Multiplication | \(P(A\cap B)=P(A)P(B|A)\) |
+| Causation | Requires stronger evidence than association |
+
+---
+
+## 🚀 Progress
+
+**Python:** Days 1–30 ✅  
+**Descriptive Statistics:** Days 31–39 ✅  
+**Probability:** Days 40–46 ✅
+
+### Day 46 Status: COMPLETED ✅
+
+> **Probability is not just about calculating numbers — it's about understanding relationships between events and interpreting them correctly.**
 # 👨‍💻 Author
 
 **Siva Kumar Reddy**
