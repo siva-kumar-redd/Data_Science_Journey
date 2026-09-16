@@ -13788,6 +13788,601 @@ Data Science Applications
 ```
 
 **Next:** Continue with the next topic in the Probability module.
+# 📘 Day 52 — Correlation + Joint, Marginal & Conditional Distributions
+
+**Phase:** Mathematics for Data Science
+**Module:** Probability & Statistics
+**Day:** 52
+**Topic:** Correlation, Joint, Marginal & Conditional Distributions
+**Status:** ✅ Completed
+**Environment:** Jupyter Notebook
+
+---
+
+## 🎯 Objective
+
+Understand **correlation**, its relationship with covariance, and strengthen **joint, marginal, and conditional probability** concepts for real Data Science datasets.
+
+---
+
+# 1. 📈 Correlation
+
+Correlation measures the **direction and strength of a linear relationship** between two numerical variables.
+
+For Pearson correlation:
+
+$$
+\boxed{
+\rho_{X,Y}
+=
+\frac{Cov(X,Y)}
+{\sigma_X\sigma_Y}
+}
+$$
+
+where:
+
+* \(Cov(X,Y)\) = covariance between X and Y
+* \(\sigma_X\) = standard deviation of X
+* \(\sigma_Y\) = standard deviation of Y
+
+---
+
+# 2. 🔢 Range of Correlation
+
+$$
+\boxed{-1\le\rho\le1}
+$$
+
+### Positive correlation
+
+$$
+\rho>0
+$$
+
+As X increases, Y tends to increase.
+
+### Negative correlation
+
+$$
+\rho<0
+$$
+
+As X increases, Y tends to decrease.
+
+### Near-zero correlation
+
+$$
+\rho\approx0
+$$
+
+There is little or no **linear association**.
+
+---
+
+# 3. 📊 Interpreting Correlation
+
+Examples:
+
+$$
+\rho=0.90
+$$
+
+→ Strong positive linear association.
+
+$$
+\rho=-0.85
+$$
+
+→ Strong negative linear association.
+
+$$
+\rho=0.05
+$$
+
+→ Very weak linear association.
+
+### Key interpretation rule
+
+* **Sign** → direction
+* **Absolute magnitude** → strength of linear association
+
+---
+
+# 4. 🔄 Covariance vs Correlation
+
+| Covariance                               | Correlation                                        |
+| ---------------------------------------- | -------------------------------------------------- |
+| Shows direction of co-movement           | Shows direction and strength of linear association |
+| Depends on units                         | Unitless                                           |
+| Can take values outside \(-1\) to \(+1\) | Always between \(-1\) and \(+1\)                   |
+| Harder to compare across datasets        | Easier to compare                                  |
+
+### Key Idea
+
+Correlation is essentially a **standardized form of covariance**.
+
+$$
+\boxed{
+\rho_{X,Y}
+=
+\frac{Cov(X,Y)}
+{\sigma_X\sigma_Y}
+}
+$$
+
+Standardizing covariance makes correlation **unitless and bounded**.
+
+---
+
+# 5. ⚠️ Correlation Does Not Mean Causation
+
+Suppose:
+
+$$
+\rho_{Advertising,Sales}=0.80
+$$
+
+This means advertising spend and sales have a strong positive linear association.
+
+It does **not** prove:
+
+> Increasing advertising caused sales to increase.
+
+Other factors could affect both variables:
+
+* Seasonality
+* Discounts
+* Product demand
+* Competitor activity
+* Marketing campaigns
+
+Therefore:
+
+$$
+\boxed{\text{Correlation}\neq\text{Causation}}
+$$
+
+---
+
+# 6. 🔗 Joint Probability
+
+Joint probability means the probability that **two events occur together**.
+
+$$
+\boxed{P(A\cap B)}
+$$
+
+Example:
+
+* A = Customer is Premium
+* B = Customer Purchased
+
+Then:
+
+$$
+P(A\cap B)
+$$
+
+means:
+
+> Probability that a customer is both Premium and Purchased.
+
+---
+
+# 7. 📊 Marginal Probability
+
+Marginal probability describes the probability of **one event or variable without conditioning on another**.
+
+Examples:
+
+$$
+P(A)
+$$
+
+$$
+P(B)
+$$
+
+Consider:
+
+|           | Purchased | Not Purchased |    Total |
+| --------- | --------: | ------------: | -------: |
+| Premium   |       15% |           25% |      40% |
+| Regular   |       10% |           50% |      60% |
+| **Total** |   **25%** |       **75%** | **100%** |
+
+Therefore:
+
+$$
+P(Premium)=40\%
+$$
+
+This is a **marginal probability**.
+
+The row and column totals are obtained by summing over the other variable.
+
+---
+
+# 8. 🎯 Conditional Probability
+
+Conditional probability asks:
+
+> What is the probability of B **given that A has occurred?**
+
+$$
+\boxed{
+P(B|A)=\frac{P(A\cap B)}{P(A)}
+}
+$$
+
+Using the previous table:
+
+$$
+P(Purchased|Premium)
+=
+\frac{0.15}{0.40}
+$$
+
+$$
+=
+\boxed{0.375=37.5\%}
+$$
+
+### Interpretation
+
+> **37.5% of Premium customers purchased.**
+
+---
+
+# 9. 🔄 Conditional Probability Direction Matters
+
+These are different:
+
+$$
+P(Purchased|Premium)
+$$
+
+and:
+
+$$
+P(Premium|Purchased)
+$$
+
+The denominator changes.
+
+### Example
+
+Suppose:
+
+* 150 Premium customers purchased
+* 400 Premium customers total
+* 250 customers purchased overall
+
+Then:
+
+$$
+P(Purchased|Premium)
+=
+\frac{150}{400}
+=
+37.5\%
+$$
+
+But:
+
+$$
+P(Premium|Purchased)
+=
+\frac{150}{250}
+=
+60\%
+$$
+
+Therefore:
+
+$$
+\boxed{P(A|B)\neq P(B|A)}
+$$
+
+in general.
+
+---
+
+# 10. 🔢 Important Probability Relationships
+
+### Conditional Probability
+
+$$
+\boxed{
+P(B|A)=\frac{P(A\cap B)}{P(A)}
+}
+$$
+
+### Joint Probability
+
+Rearranging the conditional probability formula:
+
+$$
+\boxed{
+P(A\cap B)=P(A)P(B|A)
+}
+$$
+
+Equivalently:
+
+$$
+\boxed{
+P(A\cap B)=P(B)P(A|B)
+}
+$$
+
+### Independence
+
+If A and B are independent:
+
+$$
+P(B|A)=P(B)
+$$
+
+and therefore:
+
+$$
+\boxed{
+P(A\cap B)=P(A)P(B)
+}
+$$
+
+---
+
+# 11. ⚠️ Correlation vs Independence
+
+These concepts are related but **not identical**.
+
+### Independence
+
+Knowing one variable or event gives no information that changes the probability of the other.
+
+### Zero Correlation
+
+Means there is little or no **linear relationship**.
+
+A nonlinear relationship can still exist when correlation is zero.
+
+Therefore:
+
+$$
+\boxed{\text{Zero correlation does not necessarily mean independence}}
+$$
+
+### Important distinction
+
+For general variables:
+
+$$
+\boxed{\text{Independence}\Rightarrow\text{Zero covariance/correlation}}
+$$
+
+but:
+
+$$
+\boxed{\text{Zero correlation}\not\Rightarrow\text{Independence}}
+$$
+
+---
+
+# 12. 💼 Data Science Case Study
+
+An e-commerce company analyzes **10,000 customers**.
+
+|              | Purchased | Not Purchased |      Total |
+| ------------ | --------: | ------------: | ---------: |
+| App User     |     1,800 |         2,200 |      4,000 |
+| Non-App User |       700 |         5,300 |      6,000 |
+| **Total**    | **2,500** |     **7,500** | **10,000** |
+
+---
+
+## Overall Purchase Probability
+
+$$
+P(Purchased)
+=
+\frac{2500}{10000}
+$$
+
+$$
+\boxed{P(Purchased)=25\%}
+$$
+
+---
+
+## Purchase Probability Among App Users
+
+$$
+P(Purchased|App)
+=
+\frac{1800}{4000}
+$$
+
+$$
+\boxed{P(Purchased|App)=45\%}
+$$
+
+---
+
+## Probability That a Purchaser Is an App User
+
+$$
+P(App|Purchased)
+=
+\frac{1800}{2500}
+$$
+
+$$
+\boxed{P(App|Purchased)=72\%}
+$$
+
+---
+
+## Interpretation
+
+Overall purchase rate:
+
+$$
+25\%
+$$
+
+App-user purchase rate:
+
+$$
+45\%
+$$
+
+The purchase rate among App Users is therefore **20 percentage points higher** than the overall customer purchase rate.
+
+This indicates an **association in this dataset**.
+
+It does **not** establish that app usage caused the purchases.
+
+A proper causal conclusion would require an appropriate experimental or causal-inference design.
+
+---
+
+# 13. 📊 Correlation in the Same Business Context
+
+Suppose the company finds:
+
+$$
+\rho=0.72
+$$
+
+between:
+
+* Monthly app usage time
+* Purchase amount
+
+### Interpretation
+
+> There is a strong positive linear association between app usage time and purchase amount.
+
+It does **not** prove that increasing app usage causes customers to spend more.
+
+Possible confounding factors could include:
+
+* Customer income
+* Purchase frequency
+* Promotions
+* Customer segment
+* Product category
+
+---
+
+# 14. 💻 NumPy Application
+
+Correlation is commonly calculated on numerical datasets.
+
+```python
+import numpy as np
+
+app_usage = np.array([10, 20, 30, 40, 50])
+purchase_amount = np.array([100, 180, 250, 390, 480])
+
+correlation = np.corrcoef(app_usage, purchase_amount)[0, 1]
+
+print("Correlation:", correlation)
+```
+
+### Interpretation
+
+A positive correlation value indicates that higher app usage tends to be associated with higher purchase amounts in this sample.
+
+---
+
+# 15. 🧠 Core Mental Model
+
+### Joint Probability
+
+> **What is the probability that A and B happen together?**
+
+$$
+P(A\cap B)
+$$
+
+### Marginal Probability
+
+> **What is the overall probability of A?**
+
+$$
+P(A)
+$$
+
+### Conditional Probability
+
+> **What is the probability of B given A?**
+
+$$
+P(B|A)
+$$
+
+### Correlation
+
+> **How strongly and in what direction are two numerical variables linearly associated?**
+
+$$
+-1\le\rho\le1
+$$
+
+---
+
+# 16. 📌 Key Takeaways
+
+1. **Correlation** measures the direction and strength of a **linear association**.
+2. Pearson correlation always lies between:
+
+$$
+-1\le\rho\le1
+$$
+
+3. Correlation is a **standardized form of covariance**.
+4. **Joint probability** describes two events occurring together.
+5. **Marginal probability** describes one event without conditioning on another.
+6. **Conditional probability** describes the probability of one event given another.
+7. The direction in conditional probability matters:
+
+$$
+P(A|B)\neq P(B|A)
+$$
+
+in general.
+
+8. For independent events:
+
+$$
+P(A\cap B)=P(A)P(B)
+$$
+
+9. Zero correlation does **not necessarily imply independence**.
+10. Correlation does **not establish causation**.
+11. Business analysis should distinguish between **association, probability, and causal impact**.
+
+---
+
+## ✅ Day 52 Progress
+
+**Probability & Statistics Foundation**
+
+* ✅ Correlation
+* ✅ Covariance vs Correlation
+* ✅ Joint Probability
+* ✅ Marginal Probability
+* ✅ Conditional Probability
+* ✅ Independence
+* ✅ Correlation vs Independence
+* ✅ Business Case Study
+* ✅ NumPy Implementation
+
+**Day 52 completed successfully.**
 
 **Siva Kumar Reddy**
 
