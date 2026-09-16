@@ -12910,6 +12910,446 @@ P(A\cap B)=P(A)P(B|A)
 ### Day 48 Status: COMPLETED ✅
 
 > **Good probability analysis depends on asking the right question and choosing the correct denominator.**
+# 📘 Day 49 — Random Variables, PMF & CDF
+
+## 🚀 Data Science Learning Journey
+
+**Phase:** Mathematics for Data Science
+**Module:** Probability
+**Day:** 49
+**Topic:** Random Variables, PMF & CDF
+**Status:** ✅ Completed
+**Environment:** Jupyter Notebook
+
+---
+
+## 🎯 Objective
+
+Understand **Random Variables**, **Discrete vs Continuous Variables**, **Probability Mass Function (PMF)**, and **Cumulative Distribution Function (CDF)**, with practical Data Science and business applications.
+
+---
+
+# 🎲 1. Random Variable
+
+A **Random Variable (X)** assigns a numerical value to the outcome of a random experiment.
+
+### Example
+
+For a customer:
+
+```text
+X = Number of purchases in a month
+```
+
+Possible values:
+
+```text
+0, 1, 2, 3, ...
+```
+
+---
+
+# 🔢 2. Discrete vs Continuous Random Variables
+
+### Discrete Random Variable
+
+Takes **countable values**.
+
+Examples:
+
+* Number of purchases
+* Number of complaints
+* Number of defective products
+* Number of fraud transactions
+* Number of website visits
+
+### Continuous Random Variable
+
+Takes values from a continuous range and is generally **measured**.
+
+Examples:
+
+* Transaction amount
+* Waiting time
+* Temperature
+* Height
+* Weight
+
+### Quick Rule
+
+```text
+Counting → Usually Discrete
+Measuring → Usually Continuous
+```
+
+---
+
+# 📊 3. Probability Mass Function (PMF)
+
+PMF is used for **discrete random variables**.
+
+```text
+P(X = x)
+```
+
+It represents the probability that a random variable takes an **exact value**.
+
+### Example
+
+| X      |    0 |    1 |    2 |    3 |
+| ------ | ---: | ---: | ---: | ---: |
+| P(X=x) | 0.20 | 0.40 | 0.30 | 0.10 |
+
+Therefore:
+
+```text
+P(X = 1) = 0.40
+```
+
+There is a **40% probability of exactly 1**.
+
+### Valid PMF Conditions
+
+```text
+P(X = x) ≥ 0
+```
+
+and:
+
+```text
+Σ P(X = x) = 1
+```
+
+---
+
+# 📈 4. Cumulative Distribution Function (CDF)
+
+CDF gives the probability that a random variable is **less than or equal to a given value**.
+
+```text
+F(x) = P(X ≤ x)
+```
+
+For a discrete random variable:
+
+```text
+F(x) = Σ P(X = t),  t ≤ x
+```
+
+### Example
+
+Using:
+
+| X      |    0 |    1 |    2 |    3 |
+| ------ | ---: | ---: | ---: | ---: |
+| P(X=x) | 0.20 | 0.40 | 0.30 | 0.10 |
+
+We get:
+
+```text
+P(X ≤ 0) = 0.20
+
+P(X ≤ 1) = 0.20 + 0.40 = 0.60
+
+P(X ≤ 2) = 0.20 + 0.40 + 0.30 = 0.90
+
+P(X ≤ 3) = 1.00
+```
+
+---
+
+# 🔄 5. PMF vs CDF
+
+| PMF                      | CDF                               |
+| ------------------------ | --------------------------------- |
+| Exact probability        | Cumulative probability            |
+| `P(X=x)`                 | `P(X≤x)`                          |
+| Probability at one value | Probability up to a value         |
+| Discrete variables       | Discrete and continuous variables |
+
+### Remember
+
+```text
+PMF → EXACT
+CDF → UP TO
+```
+
+---
+
+# 🧮 6. Important Probability Rules
+
+### At Most
+
+```text
+P(X ≤ a)
+```
+
+Includes `a`.
+
+Example:
+
+```text
+At most 2 → 0, 1, 2
+```
+
+### Less Than
+
+```text
+P(X < a)
+```
+
+Does not include `a`.
+
+Example:
+
+```text
+Less than 2 → 0, 1
+```
+
+### More Than
+
+```text
+P(X > a) = 1 - P(X ≤ a)
+```
+
+Example:
+
+```text
+More than 2 → 3, 4, ...
+```
+
+### At Least
+
+```text
+P(X ≥ a) = 1 - P(X < a)
+```
+
+Example:
+
+```text
+At least 2 → 2, 3, 4, ...
+```
+
+---
+
+# 💼 7. Business Application
+
+An e-commerce company records the number of orders made by customers in one month.
+
+| Orders X |    0 |    1 |    2 |    3 |    4 |
+| -------- | ---: | ---: | ---: | ---: | ---: |
+| P(X)     | 0.20 | 0.35 | 0.25 | 0.15 | 0.05 |
+
+### Exactly 2 Orders
+
+```text
+P(X = 2) = 0.25
+```
+
+Therefore:
+
+**25% of customers place exactly 2 orders.**
+
+### At Most 2 Orders
+
+```text
+P(X ≤ 2)
+= 0.20 + 0.35 + 0.25
+= 0.80
+```
+
+Therefore:
+
+**80% of customers place at most 2 orders.**
+
+### More Than 2 Orders
+
+```text
+P(X > 2)
+= 0.15 + 0.05
+= 0.20
+```
+
+Therefore:
+
+**20% of customers place more than 2 orders.**
+
+### At Least 3 Orders
+
+```text
+P(X ≥ 3)
+= 0.15 + 0.05
+= 0.20
+```
+
+Therefore:
+
+**20% of customers place at least 3 orders.**
+
+If there are 10,000 customers:
+
+```text
+10,000 × 0.20 = 2,000
+```
+
+Expected customers placing at least 3 orders:
+
+**2,000 customers**
+
+---
+
+# 🧠 8. Probability vs Percentage vs Count
+
+These represent different quantities.
+
+### Probability
+
+```text
+0.20
+```
+
+### Percentage
+
+```text
+0.20 × 100 = 20%
+```
+
+### Expected Count
+
+```text
+0.20 × 10,000 = 2,000
+```
+
+### Key Relationship
+
+```text
+Probability × Total
+        ↓
+Expected Count
+```
+
+---
+
+# 🤖 9. Data Science Applications
+
+PMFs and CDFs are useful for understanding:
+
+* Customer purchase behavior
+* Fraud transaction counts
+* Number of claims
+* Website activity
+* Customer complaints
+* Risk analysis
+* Probability distributions
+* Statistical modeling
+* Machine Learning probability concepts
+
+CDFs are particularly useful for questions such as:
+
+> **"What percentage of customers have transaction amounts below a certain threshold?"**
+
+or:
+
+> **"What is the probability that a value is at most a particular limit?"**
+
+---
+
+# ⚠️ 10. Common Mistakes
+
+### Mistake 1 — Confusing Exact and Cumulative Probability
+
+```text
+P(X = 2) ≠ P(X ≤ 2)
+```
+
+The first represents the probability of **exactly 2**.
+
+The second represents the probability of **2 or less**.
+
+---
+
+### Mistake 2 — Misreading Inequality Symbols
+
+Always translate:
+
+```text
+<  → Less than
+≤  → Less than or equal to
+>  → Greater than
+≥  → Greater than or equal to
+```
+
+---
+
+### Mistake 3 — Confusing Probability and Count
+
+If the question asks:
+
+```text
+"What is the probability?"
+```
+
+Return something like:
+
+```text
+0.20 = 20%
+```
+
+If it asks:
+
+```text
+"How many customers?"
+```
+
+Calculate:
+
+```text
+Probability × Total Customers
+```
+
+---
+
+# ⭐ Key Takeaways
+
+1. A **Random Variable** assigns numerical values to random outcomes.
+2. **Discrete variables** are countable.
+3. **Continuous variables** are measured.
+4. **PMF gives the probability of an exact value** for a discrete random variable.
+5. **CDF gives cumulative probability up to a value** and applies to both discrete and continuous random variables.
+6. `P(X=x)` and `P(X≤x)` are different.
+7. Always interpret inequality symbols carefully.
+8. Probability, percentage, and expected count are different quantities.
+9. PMF and CDF are fundamental concepts for probability distributions and Machine Learning.
+10. Probability calculations become more useful when connected to real business questions.
+
+---
+
+# 📌 Progress
+
+**Mathematics for Data Science → Probability Foundation**
+
+**Day 49 completed.** ✅
+
+### Learning Progress
+
+```text
+Random Variables
+       ↓
+Discrete vs Continuous
+       ↓
+PMF
+       ↓
+CDF
+       ↓
+Probability Rules
+       ↓
+Business Application
+       ↓
+Data Science Applications
+```
+
+**Next:** **Day 50 — PDF + Continuous CDF + Probability from Continuous Distributions**
+
 **Siva Kumar Reddy**
 
 📊 Aspiring AI/Data Scientist  
